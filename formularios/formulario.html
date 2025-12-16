@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario El Hilo Rojo</title>
+</head>
+<body>
+
+<div class="formulario">
+    <form action="accio.php" autocomplete="on" method="get">
+        <label for="nombre">Escribe tu nombre: </label>
+        <input type="text" name="nombre" id="nombre" required>
+        <br>
+        
+        <label for="email">Escribe tu email: </label>
+        <input type="email" name="email" id="nombre" required>
+        <br>
+
+        <label for="email">Escribe tu contraseña: </label>
+        <input type="password" name="password" id="password" required>
+        <br>
+
+        <label for="email">Escribe tu fecha de nacimiento: </label>
+        <input type="number" name="password" id="password" required>
+
+        
+        <h1>Pon tus preferencias</h1>
+        <div class="genero">
+            <div>
+                <input id="hombre" name="sexo" type="radio" placeholder="hombre" value="hombre">
+                <label for="hombre">Hombre</label>
+            </div>
+                        
+            <div>
+                <input id="mujer" name="sexo" type="radio" placeholder="mujer" value="mujer">
+                <label for="mujer">Mujer</label>
+            </div>
+
+            <div>
+                <input id="ns" name="sexo" type="radio" placeholder="ns" value="ns">
+                <label for="ns">NS/NC</label>
+            </div>
+        </div>
+
+
+        <div class="preferencias">
+        <h1>Pon tus preferencias</h1>
+            <div>
+                <input id="hombre" name="sexo" type="radio" placeholder="hombre" value="hombre">
+                <label for="hombre">Hombre</label>
+            </div>
+                        
+            <div>
+                <input id="mujer" name="sexo" type="radio" placeholder="mujer" value="mujer">
+                <label for="mujer">Mujer</label>
+            </div>
+
+            <div>
+                <input id="ambos" name="sexo" type="radio" placeholder="ambos" value="ambos">
+                <label for="ns">Ambos</label>
+            </div>
+        </div>
+
+
+    </form>
+</div>
+
+
+</body>
+</html>
