@@ -1,115 +1,220 @@
-<!DOCTYPE html>
-<html lang="es"> <!-- "es" si la web está en español -->
+/*AÑADIMOS LA FUENTE POPPINS*/
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Regular.ttf");
+  font-weight: 400;
+}
+/*AÑADIMOS LA FUENTE POPPINS SEMIBOLD*/
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-SemiBold.ttf");
+  font-weight: 600;
+}
+/*AÑADIMOS LA FUENTE POPPINS BOLD*/
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Bold.ttf");
+  font-weight: 700;
+}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario El Hilo Rojo</title>
-    <link rel="stylesheet" href="formulario.css" /> <!-- ENLAZAMOS CON EL CSS DEL FORMULARIO -->
-</head>
+/*marcamos que todo el documento sera en fuente poppins*/
+body{
+  font-family: "Poppins", sans-serif;
+}
+/*marcamos que el titulo hilo rojo sera en poppins bold de color blanco*/
+h1{
+  font-weight: 700;   /* Bold */
+  color: #fff;
+}
+/*marcamos que el titulo del apartado(crear perfil) sera en poppins semi bold*/
+h2{
+  font-weight: 600;   /* SemiBold */
+}
+/*marcamos que los titulos y campos de registro sean del mismo tipo*/
+h3,label{
+  font-family: "Poppins", sans-serif;   /* Poppins */
+  font-weight: 600;   /* SemiBold */
+  font-size: 14px;      /* tamaño de la fuente, para forzar a los h3 a ser iguales que los label*/
+}
 
-<body>
-    <div id="contenedor">
+/*CREAMOS EL GRID*/
+#contenedor {
+    min-height: 100vh;   /* para que se ajuste a tamaño de pantalla */
+    background: #f2f2f2;  /* gris siempre ocupa toda la pantalla */
+    display: grid;
+    grid-template-columns: 1fr; /* 1 columna */
+    grid-template-rows: auto 1fr; /* cabeceras auto, contenido se ajusta a la pantalla  */
+    width: 100%; 
+    height: 100%;
+}
 
-        <div id="cabecera_superior"> <!-- cabecera superior con titulo y logo -->
-            <div class="cojunto_cabezera">
-                <img src="logo sin fondo.png" alt="logo">
-                <h1>EL HILO ROJO</h1>
-            </div>
-        </div>
-        <section class="formulario"> <!-- contenido con formulario -->
-            <div id=cabecera_titulo> <!-- cabecera con titulo del apartado -->
-                <h2> CREAR PERFIL </h2>
-            </div>
-            <form action="accio.php" autocomplete="on" method="get">
+#cabecera_superior {
+    grid-row: 1/2;
+    grid-column: 1/4;
+    background-color: #E30c0c;
+    align-items: center;
+    padding: 5px 24px;
+}
 
-                <div class="form-grid">
+.cojunto_cabezera{
+  display: flex;
+  align-items: center;   /* centra vertical */
+  justify-content: center; /* centra todo el bloque */
+  gap: 16px;             /* espacio entre logo y texto */
+}
 
-                    <div class="col-izq">
-                        <!-- forms nombre -->
-                        <label for="nombre">Escribe tu nombre:</label>
-                        <input type="text" name="nombre" id="nombre" required pattern="[A-Za-z]{3,}" placeholder=""
-                            title="Debe tener al menos 3 caracteres y solo letras" /> <!-- si son letras y minimo 3 -->
 
-                        <!-- forms email -->
-                        <label for="email">Escribe tu email:</label>
-                        <input type="email" name="email" id="email" required placeholder="ejemplo@correo.com"
-                            title="Debe tener un formato valido" /><!-- placeholder nos sirve para que se vea en gris el ejemplo -->
+#cabecera{
+  min-width: 0;      /* permite que el contenido se ajuste dentro del 1fr */
+}
 
-                        <!-- forms pasword -->
-                        <label for="password">Escribe tu contraseña:</label>
-                        <input type="password" name="password" id="password" required
-                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$" placeholder=""
-                            title=" Minimo 8 caracteres, debe incluir numeros, mayusculas y minusculas" />
+#logo {
+    /*empieza en la fila 1 y acaba en la 3 = ocupa 1 y 2*/
+    grid-column: 1/2;
+    display: grid;
+    align-items: center;      /* vertical */
+    justify-items: end;       /* horizontal a la derecha */
+    /* centrar con grid */
+}
 
-                        <!-- forms repetir pasword -->
-                        <label for="passwordRepeat">Repite tu contraseña:</label>
-                        <input type="password" name="passwordRepeat" id="passwordRepeat" required
-                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$" placeholder=""
-                            title=" Minimo 8 caracteres, debe incluir numeros, mayusculas y minusculas" />
+.cojunto_cabezera img{
+  width: 48px;     /* tamaño base */
+  height: auto;
+  max-width: 10vw; /* nunca más grande del 10% de la pantalla */
+}
+#cabecera {
+    grid-column: 2/3;
+    display: grid;
+    place-items: center;
+    /* centrar el título con grid */
+}
 
-                        <!--  forms fecha de nacimiento Lo correcto es type="date" -->
-                        <label for="fecha_nacimiento">Escribe tu fecha de nacimiento:</label>
-                        <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" required min="1926-01-01"
-                            max="2008-12-31" />
+#cabecera h1 {
+    margin: 0;
+    padding: 10px 0;
+    width: 80%;
+    text-align: center;
+  white-space: nowrap;
+  font-size: clamp(18px, 3vw, 32px);
+    /* rectángulo blanco dentro de la franja verde */
 
-                        <!-- forms genero -->
-                        <h3>Género</h3>
-                        <!-- radios de género -->
-                        <div class="genero">
-                            <div>
-                                <input id="genero_hombre" name="genero" type="radio" value="hombre" />
-                                <label for="genero_hombre">Hombre</label>
-                            </div>
-                            <div>
-                                <input id="genero_mujer" name="genero" type="radio" value="mujer" />
-                                <label for="genero_mujer">Mujer</label>
-                            </div>
-                            <div>
-                                <input id="genero_ns" name="genero" type="radio" value="nsnc" checked/>
-                                <label for="genero_ns">NS/NC</label>
-                            </div>
-                        </div>
+}
 
-                        <h3>Preferencias</h3>
+#cabecera_titulo {
+    height: 40px;
+    margin-bottom: 30px;
+    /* o el alto que quieras */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-                        <!-- radios de preferencias  -->
-                        <div class="preferencias">
-                            <div>
-                                <input id="pref_hombre" name="preferencia" type="radio" value="hombre" />
-                                <label for="pref_hombre">Hombre</label>
-                            </div>
-                            <div>
-                                <input id="pref_mujer" name="preferencia" type="radio" value="mujer" />
-                                <label for="pref_mujer">Mujer</label>
-                            </div>
-                            <div>
-                                <input id="pref_ambos" name="preferencia" type="radio" value="ambos" checked/>
-                                <label for="pref_ambos">Ambos</label>
-                            </div>
-                        </div>
+#cabecera_titulo h2 {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    float: none;  /* por si había floats */
+    position: static;  /* por si estaba absolute/relative */
+    left: auto;
+    right: auto;
+}
 
-                        <!-- BOTÓN SUBMIT -->
-                        <button type="submit" class="btn-submit">
-                            REGISTRARSE
-                        </button>
-                    </div>
+/*CONTENIDO: centramos en la pagina*/
+.formulario {
+    grid-row: 3/4;
+    grid-column: 1/3;
+    padding: 2%;
+    text-align: center;
+    background: #fff;
+    margin: 30px auto; /* centra */
+    width: min(1100px, 92%); /*  ancho máximo y responsive */
+    padding: 40px;
+    border-radius: 8px; /*borde*/
+    box-shadow: 0 8px 25px rgba(0, 0, 0, .12); /* sombra del borde para que se vea como una caja*/
+}
 
-                    <!-- COLUMNA DERECHA -->
-                    <div class="col-der">
-                        <h3>Fotografías subidas</h3>
+/* contenedor en 2 columnas - contenido del formulario*/
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
 
-                        <!-- ✅ Esto ahora es un placeholder -->
-                        <div class="preview-foto">Vista previa</div>
+/* izquierda */
+.col-izq {
+    grid-column: 1/2;
+}
 
-                        <!-- ✅ type="button" correcto para que no envíe el form -->
-                        <button type="button">Agregar fotos</button>
-                    </div>
-                </div>
-            </form>
-        </section>
+/* derecha con la línea vertical */
+.col-der {
+    grid-column: 2/3;
+    border-left: 3px solid #e5e5e5;
+    padding: 15px;
+    height: 100%; /* para que el borde use toda la altura estirada */
+}
 
-    </div>
-</body>
+/*  caja de la foto - para tener guia */
+.preview-foto {
+    margin-top: 10px;
+    height: 150px;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* como se deben visalizar el titulo de los campos de la iz*/
+.col-izq label {
+    display: block;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-style: bold;
+    margin: 14px 0 6px;
+}
+/* como se deben visalizar los inpus de la iz*/
+.col-izq input {
+    width: 100%;
+    padding: 10px 10px;
+    border: 0;
+    background: #ffc450 ; /* “amarillo” plantilla */
+    border-radius: 4px;
+    text-align: center;
+}
+/*como se ve las opciones multiples*/
+.genero,
+.preferencias {
+    display: flex;
+    gap: 20px; /* espacio entre opciones */
+    justify-content: center; /*se ven centradas*/
+    align-items: center;
+    margin-bottom: 20px;
+}
 
-</html>
+.genero>div,
+.preferencias>div {
+    display: flex;
+    align-items: center;
+    gap: 6px; /* espacio entre el círculo y el texto */
+}
+
+.genero label,
+.preferencias label {
+    margin: 0;
+    text-transform: none; /* si no quieres mayúsculas aquí */
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+/*En caso que se marque opcion no valida, se marca en rojo*/
+input:user-invalid:not(:focus){
+  border: 2px solid red;
+}
+
+.btn-submit{
+    margin: 10px;
+    background-color: #E30c0c;
+    color: #fff;
+    padding: 8px 25px;
+    border-radius: 8px; /*borde*/
+    border:#ccc;
+}
