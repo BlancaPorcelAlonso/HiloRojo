@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ver Evento - El Hilo Rojo</title>
+    <link rel="stylesheet" href="VerEvento.css" />
+</head>
+
+<body>
+      <header id="cabecera">
+            <div class="logo">
+                <a href="index.html">
+                <img src="logo_cabecera_nombre_logo.png" id="logo_completo" alt="Logo_completo">
+                <img src="logo_en_blanco.png" id="logo_solo" alt="Logo_solo"></a>
+            </div>
+            </div>
+            <div class="opciones">
+                <form class="buscador">
+                    <input class="barra_buscador" type="search" placeholder="Buscar...">
+                    <button type="submit" class="btn-buscar">
+                        <img src="icono_lupa.png" alt="Buscar">
+                    </button>
+                </form>
+
+                <div class="usuario">
+                    <a href="formulario_crear_usuario.html" class="btn-registro">
+                        Registro
+                    </a>
+
+                    <a href="formulario_inicio_sesion_usuario.html" class="btn-login">
+                        Iniciar sesión
+                    </a>
+                    <!-- Botón único para móvil -->
+                    <a href="formulario_inicio_sesion_usuario.html" class="btn-usuario">
+                    </a>
+                </div>
+            </div>
+        </header>
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-area">
+
+        <!-- PANEL IZQUIERDO (contenido principal del evento) -->
+        <section class="panel panel-left">
+
+            <article class="panel-inner">
+
+                <header id="cabecera_titulo">
+                    <h2>Evento destacado</h2>
+                </header>
+
+                <h3 class="event-title">
+                    Citas a ciegas en el restaurante Bon Jovi.
+                </h3>
+
+                <figure class="photo-area">
+                    <img src="temasconversacioncitaaciegas.jpg" alt="Foto del evento">
+                </figure>
+
+                <p class="event-desc">
+                    Serán citas a ciegas, es decir, totalmente a oscuras con una persona que no conozcas.
+                    Tendrás la oportunidad de conversar y conectar sin distracciones visuales, además cenando en el
+                    famoso restaurante Bon Jovi, conocido por su ambiente acogedor y su exquisita gastronomía.
+                </p>
+
+                <!-- Información del evento -->
+                <section class="meta">
+
+                    <article class="meta-item">
+                        <strong>Fecha</strong>
+                        <span>12 de febrero de 2026</span>
+                    </article>
+
+                    <article class="meta-item">
+                        <strong>Hora</strong>
+                        <span>17:00 - 19:30</span>
+                    </article>
+
+                    <article class="meta-item">
+                        <strong>Lugar</strong>
+                        <span>Centro Cultural El Hilo Rojo, Barcelona</span>
+                    </article>
+
+                    <article class="meta-item">
+                        <strong>Modalidad</strong>
+                        <span>Presencial</span>
+                    </article>
+
+                </section>
+
+                <section class="me-apunto-wrapper">
+                    <a href="VerPerfil.html" class="me-apunto-box" id="meApuntoBtn">
+                        ¡Me apunto!
+                    </a>
+                </section>
+
+            </article>
+
+        </section>
+
+        <!-- PANEL DERECHO (imagen decorativa en desktop) -->
+        <aside class="panel panel-right">
+            <figure class="photo-area pc-photo">
+                <img src="temasconversacioncitaaciegas.jpg" alt="Foto del evento">
+            </figure>
+        </aside>
+
+    </main>
+
+    <footer>
+        <img src="logo en blanco.png" alt="logo">
+        <nav class="footer-nav">
+            <a href="#sobre-nosotros">Sobre nosotros</a>
+            <a href="#ayuda">Ayuda</a>
+            <a href="#contacto">Contacto</a>
+            <a href="#index">Home</a>
+        </nav>
+    </footer>
+
+</body>
+
+</html>

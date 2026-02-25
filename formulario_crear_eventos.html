@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crear evento</title>
+    <link rel="stylesheet" href="formulario_crear_eventos.css" />
+</head>
+
+<body>
+    <div id="contenedor">
+
+        <div id="cabecera_superior"> <!-- cabecera superior con titulo y logo -->
+            <div class="cojunto_cabezera">
+                <img src="logo en blanco.png" alt="logo">
+                <h1>EL HILO ROJO</h1>
+            </div>
+        </div>
+        <section class="formulario"> <!-- contenido con formulario -->
+            <div id=cabecera_titulo> <!-- cabecera con titulo del apartado -->
+                <h2> CREAR EVENTO </h2>
+            </div>
+            <form action="accio.php" autocomplete="on" method="get">
+
+                <div class="form-grid">
+
+                    <div class="col-izq">
+                        <h3>Fotografías subidas</h3>
+
+                        <!-- ✅ Esto ahora es un placeholder -->
+                        <div class="preview-foto">Vista previa</div>
+
+                        <!-- ✅ type="button" correcto para que no envíe el form -->
+                        <button type="button">Agregar fotos</button>
+                    </div>
+
+                    <!-- COLUMNA DERECHA -->
+                    <div class="col-der">
+
+                        <!-- forms nombre -->
+                        <label for="nombre"> NOMBRE DEL EVENTO </label>
+                        <input type="text" name="nombre" id="nombre" required pattern="[A-Za-z]{3,}" placeholder=""
+                            title="Debe tener al menos 3 caracteres y solo letras" /> <!-- si son letras y minimo 3 -->
+
+
+                        <!-- forms cuidad -->
+                        <label for="descripcion"> DESCRIPCIÓN</label>
+                        <input type="text" name="descripcion" id="descripcion" required required pattern="[A-Za-z]{3,}"
+                            placeholder=""
+                            title="Debe tener al menos 3 caracteres y solo letras" /><!-- placeholder nos sirve para que se vea en gris el ejemplo -->
+
+                        <!-- forms direccion -->
+                        <label for="direccion">Escribe la dirección:</label>
+                        <input type="text" name="direccion" id="direccion" required required pattern="[A-Za-z]{3,}"
+                            placeholder=""
+                            title="Debe tener al menos 3 caracteres y solo letras" /><!-- placeholder nos sirve para que se vea en gris el ejemplo -->
+
+
+                        <!--  forms fecha de nacimiento  -->
+                        <label for="fecha_nacimiento">Escribe la fecha:</label>
+                        <input type="date" name="fecha" id="fecha" max="2008-12-31" />
+
+                        <!-- BOTÓN SUBMIT -->
+                        <button type="submit" class="btn-submit">
+                            CREAR
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+    </div>
+    <footer>
+        <img src="logo en blanco.png" alt="logo">
+        <nav class="footer-nav">
+            <a href="#sobre-nosotros">Sobre nosotros</a>
+            <a href="#ayuda">Ayuda</a>
+            <a href="#contacto">Contacto</a>
+            <a href="#index">Home</a>
+        </nav>
+
+    </footer>
+</body>
+
+</html>

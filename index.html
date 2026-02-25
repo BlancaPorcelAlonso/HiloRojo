@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es"> <!-- "es" si la web está en español -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Hilo Rojo</title>
+    <link rel="stylesheet" href="index.css" /> <!-- ENLAZAMOS CON EL CSS DEL FORMULARIO -->
+</head>
+
+<body>
+    <div id="contenedor">
+        <!-- CABECERA SUPERIOR -->
+     <header id="cabecera">
+            <div class="logo">
+                <a href="index.html">
+                <img src="logo_cabecera_nombre_logo.png" id="logo_completo" alt="Logo_completo">
+                <img src="logo en blanco.png" id="logo_solo" alt="Logo_solo"></a>
+            </div>
+            <div class="opciones">
+                <form class="buscador">
+                    <input class="barra_buscador" type="search" placeholder="Buscar...">
+                    <button type="submit" class="btn-buscar">
+                        <img src="icono_lupa.png" alt="Buscar">
+                    </button>
+                </form>
+
+                <div class="usuario">
+                    <a href="formulario_crear_usuario.html" class="btn-registro">
+                        Registro
+                    </a>
+
+                    <a href="formulario_inicio_sesion_usuario.html" class="btn-login">
+                        Iniciar sesión
+                    </a>
+                    <!-- Botón único para móvil -->
+                    <a href="formulario_inicio_sesion_usuario.html" class="btn-usuario">
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <div id="contenido">
+            <section id="portada">
+                <div>
+                    <h2> CONECTAR NUNCA FUE TAN SENCILLO</h2>
+                    <h3> Conexiones que no
+                        <br> dependen de un algoritmo.
+                    </h3>
+                    <button class="btn-inicio"> VER EVENTOS </button>
+                </div>
+            </section>
+
+            <div id="slider">
+                <img src="simulador_slider.png" alt="imagen que simula donde ira el slider " />
+            </div>
+
+            <section id="eventos_nuevos">
+                <h2 id="subtitulo"> RECIÉN LLEGADOS AL HILO... </h2>
+                <article>
+                    <img src="Ejemplo_evento_1.png" alt="imagen de evento" />
+                    <div>
+                        <h2> TITULO DEL EVENTO </h2>
+                        <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi veritatis at corrupti
+                            doloribus magni ipsam distinctio necessitatibus vero cupiditate esse! Ea mollitia quasi
+                            accusamus dolores, et minima sunt fuga id? </p>
+                        <a href="VerEvento.html"class="card__btn"> IR AL EVENTO </a>
+                    </div>
+                </article>
+                <article>
+                    <img src="Ejemplo_evento_2.png" alt="imagen de evento" />
+                    <div>
+                        <h2> TITULO DEL EVENTO </h2>
+                        <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad iste iusto perferendis officiis
+                            minima. Placeat, sapiente omnis. Sequi suscipit consequuntur aspernatur quas libero quaerat
+                            odio, quis autem aliquid quasi tempore. </p>
+                        <a href="VerEvento.html"class="card__btn"> IR AL EVENTO </a>
+                    </div>
+                </article>
+            </section>
+
+            <section id="eventos_cerca">
+                <h2 id id="subtitulo"> CONECTA CERCA DE TI...</h2>
+                <article class="card">
+                    <div class="card__photo">
+                        <img src="Ejemplo_evento_3.png" alt="imagen evento" />
+                    </div>
+
+                    <h3 class="card__title">TITULO DEL EVENTO</h3>
+                    <p class="card__meta">Info corta del evento</p>
+                    <a href="VerEvento.html"class="card__btn"> IR AL EVENTO </a>
+                </article>
+                <article class="card">
+                    <div class="card__photo">
+                        <img src="Ejemplo_evento_4.png" alt="imagen de evento" />
+                    </div>
+
+                    <h3 class="card__title">TITULO DEL EVENTO</h3>
+                    <p class="card__meta">Info corta del evento</p>
+                    <a href="VerEvento.html"class="card__btn"> IR AL EVENTO </a>
+                </article>
+                <article class="card">
+                    <div class="card__photo">
+                        <img src="Ejemplo_evento_5.jpg" alt="imagen de evento" />
+                    </div>
+
+                    <h3 class="card__title">TITULO DEL EVENTO</h3>
+                    <p class="card__meta">Info corta del evento</p>
+                    <a href="VerEvento.html"class="card__btn"> IR AL EVENTO </a>
+                </article>
+            </section>
+
+            <section id="espacio_iconos">
+                <h2 id="subtitulo"> MÁS ALLÁ DEL ENCUENTRO</h2>
+                <article class="card_icon">
+                    <div class="card__icon_photo">
+                        <div class="icon" id="icon4"> </div>
+                    </div>
+                    <h3 class="card__title">Próximos Encuentros</h3>
+                    <p class="card__meta">Consulta el calendario y reserva tu plaza en los próximos encuentros, cenas y
+                        experiencias exclusivas.</p>
+                </article>
+                <article class="card_icon">
+                    <div class="card__icon_photo">
+                        <div class="icon" id="icon2"> </div>
+                    </div>
+                    <h3 class="card__title">Sugerencias & Soporte</h3>
+                    <p class="card__meta">Tu opinión importa. Envíanos sugerencias o comunícanos cualquier incidencia
+                        para seguir mejorando.</p>
+                </article>
+                <article class="card_icon">
+                    <div class="card__icon_photo">
+                        <div class="icon" id="icon1"> </div>
+                    </div>
+
+                    <h3 class="card__title">Guía para Conectar</h3>
+                    <p class="card__meta">Descubre cómo funcionamos y prepárate con consejos prácticos para disfrutar de
+                        tu experiencia.</p>
+                </article>
+
+                <article class="card_icon">
+                    <div class="card__icon_photo">
+                        <div class="icon" id="icon3"> </div>
+                    </div>
+                    <h3 class="card__title">Términos y Normativa</h3>
+                    <p class="card__meta">Queremos un entorno seguro y respetuoso. Conoce nuestras normas y cómo
+                        protegemos tu privacidad.</p>
+                </article>
+
+            </section>
+        </div>
+    </div>
+    <footer>
+        <img src="logo en blanco.png" alt="logo del footer">
+        <nav class="footer-nav">
+            <a href="#sobre-nosotros">Sobre nosotros</a>
+            <a href="#ayuda">Ayuda</a>
+            <a href="#contacto">Contacto</a>
+            <a href="#index">Home</a>
+        </nav>
+    </footer>
+</body>
+
+</html>

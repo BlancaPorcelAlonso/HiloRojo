@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es"> <!-- "es" si la web está en español -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario El Hilo Rojo</title>
+    <link rel="stylesheet" href="formulario.css" /> <!-- ENLAZAMOS CON EL CSS DEL FORMULARIO -->
+</head>
+
+<body>
+    <div id="contenedor">
+
+        <header id="cabecera">
+            <div class="logo">
+                <a href="index.html">
+                <img src="logo_cabecera_nombre_logo.png" id="logo_completo" alt="Logo_completo">
+                <img src="logo_en_blanco.png" id="logo_solo" alt="Logo_solo"></a>
+            </div>
+            <div class="opciones">
+                <form class="buscador">
+                    <input class="barra_buscador" type="search" placeholder="Buscar...">
+                    <button type="submit" class="btn-buscar">
+                        <img src="icono_lupa.png" alt="Buscar">
+                    </button>
+                </form>
+
+                <div class="usuario">
+                    <a href="formulario_crear_usuario.html" class="btn-registro">
+                        Registro
+                    </a>
+
+                    <a href="formulario_inicio_sesion_usuario.html" class="btn-login">
+                        Iniciar sesión
+                    </a>
+                    <!-- Botón único para móvil -->
+                    <a href="formulario_inicio_sesion_usuario.html" class="btn-usuario">
+                    </a>
+                </div>
+            </div>
+        </header>
+        <section class="formulario"> <!-- contenido con formulario -->
+            <div id=cabecera_titulo> <!-- cabecera con titulo del apartado -->
+                <h2> CREAR PERFIL </h2>
+            </div>
+            <form action="accio.php" autocomplete="on" method="get">
+
+                <div class="form-grid">
+
+                    <div class="col-izq">
+                        <!-- forms nombre -->
+                        <label for="nombre">Escribe tu nombre:</label>
+                        <input type="text" name="nombre" id="nombre" required pattern="[A-Za-z]{3,}" placeholder=""
+                            title="Debe tener al menos 3 caracteres y solo letras" />
+                        <!-- si son letras y minimo 3 -->
+
+                        <!-- forms email -->
+                        <label for="email">Escribe tu email:</label>
+                        <input type="email" name="email" id="email" required placeholder="ejemplo@correo.com"
+                            title="Debe tener un formato valido" /><!-- placeholder nos sirve para que se vea en gris el ejemplo -->
+
+                        <!-- forms cuidad -->
+                        <label for="poblacion">Escribe tu población:</label>
+                        <input type="text" name="poblacion" id="poblacion" required pattern="[A-Za-z]{3,}"
+                            placeholder="" title="Debe tener al menos 3 caracteres y solo letras" />
+
+                        <!-- forms pasword -->
+                        <label for="password">Escribe tu contraseña:</label>
+                        <input type="password" name="password" id="password" required
+                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$" placeholder=""
+                            title=" Minimo 8 caracteres, debe incluir numeros, mayusculas y minusculas" />
+
+                        <!-- forms repetir pasword -->
+                        <label for="passwordRepeat">Repite tu contraseña:</label>
+                        <input type="password" name="passwordRepeat" id="passwordRepeat" required
+                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$" placeholder=""
+                            title=" Minimo 8 caracteres, debe incluir numeros, mayusculas y minusculas" />
+
+                        <!--  forms fecha de nacimiento Lo correcto es type="date" -->
+                        <label for="fecha_nacimiento">Escribe tu fecha de nacimiento:</label>
+                        <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" required min="1926-01-01"
+                            max="2008-12-31" />
+
+                        <!-- forms genero -->
+                        <h3>Género</h3>
+                        <!-- radios de género -->
+                        <div class="genero">
+                            <div>
+                                <input id="genero_hombre" name="genero" type="radio" value="hombre" />
+                                <label for="genero_hombre">Hombre</label>
+                            </div>
+                            <div>
+                                <input id="genero_mujer" name="genero" type="radio" value="mujer" />
+                                <label for="genero_mujer">Mujer</label>
+                            </div>
+                            <div>
+                                <input id="genero_ns" name="genero" type="radio" value="nsnc" checked />
+                                <label for="genero_ns">NS/NC</label>
+                            </div>
+                        </div>
+
+                        <h3>Preferencias</h3>
+
+                        <!-- radios de preferencias  -->
+                        <div class="preferencias">
+                            <div>
+                                <input id="pref_hombre" name="preferencia" type="radio" value="hombre" />
+                                <label for="pref_hombre">Hombre</label>
+                            </div>
+                            <div>
+                                <input id="pref_mujer" name="preferencia" type="radio" value="mujer" />
+                                <label for="pref_mujer">Mujer</label>
+                            </div>
+                            <div>
+                                <input id="pref_ambos" name="preferencia" type="radio" value="ambos" checked />
+                                <label for="pref_ambos">Ambos</label>
+                            </div>
+                        </div>
+
+                        <!-- BOTÓN SUBMIT -->
+                        <button type="submit" class="btn-submit">
+                            REGISTRARSE
+                        </button>
+                    </div>
+
+                    <!-- COLUMNA DERECHA -->
+                    <div class="col-der">
+                        <h3>Fotografías subidas</h3>
+
+
+                        <div class="preview-foto">Vista previa</div>
+
+
+                        <button type="button">Agregar fotos</button>
+                        <a href="formulario_crear_empresa.html">Registrate como empresa</a>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+    </div>
+    <footer>
+        <img src="logo en blanco.png" alt="logo">
+        <nav class="footer-nav">
+            <a href="#sobre-nosotros">Sobre nosotros</a>
+            <a href="#ayuda">Ayuda</a>
+            <a href="#contacto">Contacto</a>
+            <a href="#index">Home</a>
+        </nav>
+
+    </footer>
+</body>
+
+</html>
