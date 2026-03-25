@@ -1,5 +1,8 @@
+
 <?php 
     session_start();
+
+
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $user = new UserController();
@@ -19,13 +22,33 @@
 
     }
 
+    
     class UserController{
+            private $conn;
+
         public function __contruct(){
-            
+        $servername = "sql7.freesqldatabase.com";
+        $username = "sql7820251";
+        $password = "1sp6gAeixt";
+        $dbname = "sql7820251";
+        
+        $this->conn = new mysqli($servername, $username, $password, $dbname);
+
         }
      
-        public function login(): void {}
-         public function logout(): void {}
-          public function register(): void {}
+        public function login(): void {
+        $_SESSION["logged"] = true;
+
+        
+        }
+
+        public function logout(): void {
+        
+
+
+        }
+        
+        
+      public function register(): void {}
     }
 ?>
