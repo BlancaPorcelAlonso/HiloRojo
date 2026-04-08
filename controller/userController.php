@@ -48,7 +48,28 @@
 
         }
         
-        
-      public function register(): void {}
+        public function register(): void
+    {
+        $nombre = trim($_POST["nombre"] ?? "");
+        $email = trim($_POST["email"] ?? "");
+        $password = $_POST["password"] ?? "";
+        $passwordRepeat = $_POST["passwordRepeat"] ?? "";
+
+      
+        // Validar que coincidan
+        if ($password !== $passwordRepeat) {
+            header("Location: formulario_crear_usuario.html?error=Las contraseñas no coinciden");
+            exit;
+        }
+
+        // Simular registro sin base de datos
+        $_SESSION["logged"] = true;
+        $_SESSION["user"] = $email;
+        $_SESSION["nombre"] = $nombre;
+        $_SESSION["admin"] = false;
+
+        header("Location: home.php");
+        exit;
+    }
     }
 ?>
