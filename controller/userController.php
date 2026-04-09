@@ -28,12 +28,17 @@
 
         public function __contruct(){
         $servername = "sql7.freesqldatabase.com";
-        $username = "sql7820251";
-        $password = "1sp6gAeixt";
-        $dbname = "sql7820251";
+        $username = "sql7822561";
+        $password = "fj9PPKRGnp";
+        $dbname = "sql7822561";
         
         $this->conn = new mysqli($servername, $username, $password, $dbname);
-
+        
+        if ($this->conn->connect_error) {
+            die("Connection failed: " . $this->conn->connect_error);
+        } else {
+            echo "Connected successfully";
+        }
         }
      
         public function login(): void {
