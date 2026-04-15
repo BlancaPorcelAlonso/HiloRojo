@@ -51,6 +51,11 @@ class UserController {
     public function login(): void
     {
         $_SESSION["logged"] = true;
+        $_SESSION["logged"] = true;
+        $validationEmail = false;
+ 
+        $email = $_POST['email'];
+        $sql = "SELECT * FROM usuarios WHERE email = '$email'";
 
 
     }
