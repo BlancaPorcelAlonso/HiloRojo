@@ -18,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<p>Login button is clicked.</p>";
         $user->register();
     }
+    
 
 }
 
@@ -49,7 +50,12 @@ class UserController {
 
     public function login(): void
     {
-       
+        $_SESSION["logged"] = true;
+        $_SESSION["logged"] = true;
+        $validationEmail = false;
+ 
+        $email = $_POST['email'];
+        $sql = "SELECT * FROM usuarios WHERE email = '$email'";
     }
 
     public function logout(): void
@@ -66,8 +72,6 @@ class UserController {
     public function register(): void
     {
 
-
-
         // recoger datos form
         $nombre = trim($_POST["nombre"] ?? "");
         $email = trim($_POST["email"] ?? "");
@@ -80,6 +84,22 @@ class UserController {
             header("Location: formulario_crear_usuario.html?error=Las contraseñas no coinciden");
             exit;
         }
+
+
+        $sql = "SELECT email FROM usuarios WHERE email = '$email'";
+        $resultado = $this->conn->query($sql);
+    
+        if ($resultado->num_rows > 0) {
+            header("Location: formulario_crear_usuario.html?error=El email ya está registrado");
+            exit;
+        }
+
+
+
+
+
+
+
         
         // insertar datos table
         // INSERT con prepared statement
@@ -98,12 +118,6 @@ class UserController {
         $stmt->close();
         $this->conn->close();
 
-
-        // Simular registro sin base de datos
-        $_SESSION["logged"] = true;
-        $_SESSION["user"] = $email;
-        $_SESSION["nombre"] = $nombre;
-        $_SESSION["admin"] = false;
 
         // return o redirect header
         // header("Location: ../view/VerPerfil.html");
