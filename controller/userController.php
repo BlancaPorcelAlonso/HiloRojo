@@ -15,23 +15,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user->logout();
     }
     if (isset($_POST["register"])) {
-        echo "<p>Register button is clicked.</p>";
+        echo "<p>Login button is clicked.</p>";
         $user->register();
     }
 
 }
 
 
-class UserController
-{
-    private $conn;
+class UserController {
+    public $conn;
 
-    public function __contruct()
+    public function __construct()
     {
         // $servername = "sql7.freesqldatabase.com";
         // $username = "sql7822561";
         // $password = "fj9PPKRGnp";
         // $dbname = "sql7822561";
+        echo "en constructor";
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -40,8 +40,8 @@ class UserController
         $this->conn = new mysqli($servername, $username, $password, $dbname);
 
         if ($this->conn->connect_error) {
-            // die("Connection failed: " . $this->conn->connect_error);
             echo "Connected error";
+            // die("Connection failed: " . $this->conn->connect_error);
         } else {
             echo "Connected successfully";
         }
@@ -78,8 +78,6 @@ class UserController
             header("Location: formulario_crear_usuario.html?error=Las contraseñas no coinciden");
             exit;
         }
-
-        
         
         // insertar datos table
         // INSERT con prepared statement
