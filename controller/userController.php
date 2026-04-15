@@ -49,14 +49,16 @@ class UserController {
 
     public function login(): void
     {
-        $_SESSION["logged"] = true;
-
-
+       
     }
 
     public function logout(): void
     {
+    session_unset();   // Vacía variables de sesión
+    session_destroy(); // Destruye la sesión
 
+    header("Location: form_login.php");
+    exit;
 
 
     }

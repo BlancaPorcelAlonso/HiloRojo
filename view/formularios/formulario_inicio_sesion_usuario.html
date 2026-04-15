@@ -44,7 +44,7 @@
             <div id=cabecera_titulo> <!-- cabecera con titulo del apartado -->
                 <h2> INICIAR SESIÓN </h2>
             </div>
-            <form action="../../controller/userController.php" autocomplete="on" method="get">
+            <form action="../../controller/userController.php" autocomplete="on" method="post">
 
                 <div class="form-grid">
 
@@ -79,7 +79,7 @@
                         </div>
 
                         <!-- BOTÓN SUBMIT -->
-                        <button type="submit" class="btn-submit">
+                        <button type="submit" name="login" class="btn-submit">
                             ENTRAR
                         </button>
                         <p class="sin-cuenta">NO TIENES UNA CUENTA? <a href="formulario_crear_usuario.html"
