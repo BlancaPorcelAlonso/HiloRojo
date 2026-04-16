@@ -50,12 +50,27 @@ class UserController {
 
     public function login(): void
     {
-        $_SESSION["logged"] = true;
-        $_SESSION["logged"] = true;
-        $validationEmail = false;
- 
-        $email = $_POST['email'];
-        $sql = "SELECT * FROM usuarios WHERE email = '$email'";
+  $email = $_POST["email"];
+        $password = $_POST["password"];
+        $sql = "SELECT * FROM sql7822561 WHERE usuarios = ? AND password = ?";
+
+        $stmt = $this->conn->prepare($sql);
+
+        $stmt->bind_param("ss", $email, $password);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($fila = $result->fetch_assoc()) {
+            $_SESSION["logged"] = true;
+            $_SESSION["email"] = $fila["email"];
+            $_SESSION["password"] = $fila["password"];
+            header("Location: index.html?error = No furula, no");
+            
+        echo "Email: el primero" . $fila ['email'[0]];
+        }
+
+        echo "Email: el segundo " . $fila ['email'[1]];
     }
 
     public function logout(): void
