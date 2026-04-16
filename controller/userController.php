@@ -18,25 +18,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<p>Login button is clicked.</p>";
         $user->register();
     }
-    
-
 }
 
 
-class UserController {
+class UserController
+{
     public $conn;
 
     public function __construct()
     {
-        // $servername = "sql7.freesqldatabase.com";
-        // $username = "sql7822561";
-        // $password = "fj9PPKRGnp";
-        // $dbname = "sql7822561";
-        echo "en constructor";
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
+        $servername = "sql7.freesqldatabase.com";
+        $username = "sql7822561";
+        $password = "fj9PPKRGnp";
         $dbname = "sql7822561";
+        echo "en constructor";
 
         $this->conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -50,7 +45,7 @@ class UserController {
 
     public function login(): void
     {
-  $email = $_POST["email"];
+        $email = $_POST["email"];
         $password = $_POST["password"];
         $sql = "SELECT * FROM sql7822561 WHERE usuarios = ? AND password = ?";
 
@@ -65,23 +60,21 @@ class UserController {
             $_SESSION["logged"] = true;
             $_SESSION["email"] = $fila["email"];
             $_SESSION["password"] = $fila["password"];
-            header("Location: index.html?error = No furula, no");
-            
-        echo "Email: el primero" . $fila ['email'[0]];
+            header("Location: index.html?error = No ha funcionado");
+
+            echo "Email: el primero" . $fila['email'[0]];
         }
 
-        echo "Email: el segundo " . $fila ['email'[1]];
+        echo "Email: el segundo " . $fila['email'[1]];
     }
 
     public function logout(): void
     {
-    session_unset();   // Vacía variables de sesión
-    session_destroy(); // Destruye la sesión
+        session_unset();   // Vacía variables de sesión
+        session_destroy(); // Destruye la sesión
 
-    header("Location: form_login.php");
-    exit;
-
-
+        header("Location: form_login.php");
+        exit;
     }
 
     public function register(): void
@@ -103,7 +96,7 @@ class UserController {
 
         $sql = "SELECT email FROM usuarios WHERE email = '$email'";
         $resultado = $this->conn->query($sql);
-    
+
         if ($resultado->num_rows > 0) {
             header("Location: formulario_crear_usuario.html?error=El email ya está registrado");
             exit;
@@ -115,7 +108,7 @@ class UserController {
 
 
 
-        
+
         // insertar datos table
         // INSERT con prepared statement
         $sql = "INSERT INTO usuarios (nombre, email, contrasena) VALUES (?, ?, ?)";
@@ -139,4 +132,3 @@ class UserController {
         exit;
     }
 }
-?>
