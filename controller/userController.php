@@ -29,11 +29,11 @@ class UserController
     {
         $servername = "sql7.freesqldatabase.com";
         $username = "sql7822561";
-        $password = "fj9PPKRGnp";
+        $contrasena = "fj9PPKRGnp";
         $dbname = "sql7822561";
         echo "en constructor";
 
-        $this->conn = new mysqli($servername, $username, $password, $dbname);
+        $this->conn = new mysqli($servername, $username, $contrasena, $dbname);
 
         if ($this->conn->connect_error) {
             echo "Connected error";
@@ -46,12 +46,16 @@ class UserController
     public function login(): void
     {
         $email = $_POST["email"];
-        $password = $_POST["password"];
+        $password = $_POST["contrasena"];
         $sql = "SELECT * FROM sql7822561 WHERE usuarios = ? AND password = ?";
 
         $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$email, $contrasena]);
+            $result = $stmt->get_result();
 
-        $stmt->bind_param("ss", $email, $password);
+
+
+        $stmt->bind_param("ss", $email, $contrasena);
 
         $stmt->execute();
         $result = $stmt->get_result();
@@ -59,7 +63,7 @@ class UserController
         if ($fila = $result->fetch_assoc()) {
             $_SESSION["logged"] = true;
             $_SESSION["email"] = $fila["email"];
-            $_SESSION["password"] = $fila["password"];
+            $_SESSION["contrasena"] = $fila["contrasena"];
             header("Location: index.html?error = No ha funcionado");
 
             echo "Email: el primero" . $fila['email'[0]];
