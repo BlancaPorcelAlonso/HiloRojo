@@ -28,9 +28,9 @@ class UserController
     public function __construct()
     {
         $servername = "sql7.freesqldatabase.com";
-        $username = "sql7822561";
-        $password = "fj9PPKRGnp";
-        $dbname = "sql7822561";
+        $username = "sql7823505";
+        $password = "JJqbGjIaYI";
+        $dbname = "sql7823505";
         echo "en constructor";
 
         $this->conn = new mysqli($servername, $username, $password, $dbname);
