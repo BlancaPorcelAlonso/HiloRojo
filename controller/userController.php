@@ -29,11 +29,11 @@ class UserController
     {
         $servername = "sql7.freesqldatabase.com";
         $username = "sql7823505";
-        $password = "JJqbGjIaYI";
+        $contrasena = "JJqbGjIaYI";
         $dbname = "sql7823505";
         echo "en constructor";
 
-        $this->conn = new mysqli($servername, $username, $password, $dbname);
+        $this->conn = new mysqli($servername, $username, $contrasena, $dbname);
 
         if ($this->conn->connect_error) {
             echo "Connected error";
@@ -46,12 +46,12 @@ class UserController
     public function login(): void
     {
         $email = $_POST["email"];
-        $password = $_POST["password"];
-        $sql = "SELECT * FROM sql7822561 WHERE usuarios = ? AND password = ?";
+        $contrasena = $_POST["contrasena"];
+        $sql = "SELECT * FROM sql7822561 WHERE usuarios = ? AND contrasena = ?";
 
         $stmt = $this->conn->prepare($sql);
 
-        $stmt->bind_param("ss", $email, $password);
+        $stmt->bind_param("ss", $email, $contrasena);
 
         $stmt->execute();
         $result = $stmt->get_result();
@@ -59,7 +59,7 @@ class UserController
         if ($fila = $result->fetch_assoc()) {
             $_SESSION["logged"] = true;
             $_SESSION["email"] = $fila["email"];
-            $_SESSION["password"] = $fila["password"];
+            $_SESSION["contrasena"] = $fila["contrasena"];
             header("Location: index.html?error = No ha funcionado");
 
             echo "Email: el primero" . $fila['email'[0]];
@@ -83,12 +83,12 @@ class UserController
         // recoger datos form
         $nombre = trim($_POST["nombre"] ?? "");
         $email = trim($_POST["email"] ?? "");
-        $password = $_POST["password"] ?? "";
+        $contrasena = $_POST["contrasena"] ?? "";
         $passwordRepeat = $_POST["passwordRepeat"] ?? "";
 
 
         // Validar que coincidan
-        if ($password !== $passwordRepeat) {
+        if ($contrasena !== $passwordRepeat) {
             header("Location: formulario_crear_usuario.html?error=Las contraseñas no coinciden");
             exit;
         }
@@ -114,7 +114,7 @@ class UserController
         $sql = "INSERT INTO usuarios (nombre, email, contrasena) VALUES (?, ?, ?)";
         $stmt = $this->conn->prepare($sql);
 
-        $stmt->bind_param("sss", $nombre, $email, $password);
+        $stmt->bind_param("sss", $nombre, $email, $contrasena);
 
         if ($stmt->execute()) {
             echo "Registro insertado correctamente<br>";
