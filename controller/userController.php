@@ -27,6 +27,7 @@ class UserController
 
     public function __construct()
     {
+        
         $servername = "sql7.freesqldatabase.com";
         $username = "sql7823505";
         $password = "JJqbGjIaYI";
