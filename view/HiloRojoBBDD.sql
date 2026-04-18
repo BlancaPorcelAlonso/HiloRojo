@@ -1,15 +1,21 @@
-CREATE DATABASE IF NOT EXISTS sql7822561;
-use sql7822561;
+drop database sql7823505;
+CREATE DATABASE IF NOT EXISTS sql7823505;
+use sql7823505;
 
-CREATE TABLE if not exists usuarios (
-    nombre VARCHAR(100) NOT NULL,
-    email VARCHAR(150) NOT NULL UNIQUE,
-    contrasena VARCHAR(255) NOT NULL
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
+    contrasena VARCHAR(255)
+  
 );
 
 INSERT INTO usuarios (nombre, email, contrasena) VALUES
 ('Juan Pérez', 'juan.perez@example.com', 'hash123'),
 ('María López', 'maria.lopez@example.com', 'hash456'),
-('Carlos García', 'carlos.garcia@example.com', 'hash789');
+('Carlos García', 'carlos.garcia@example.com', 'hash789'),
+('usuario', 'usuario@gmail.com', 'usuario1234'),
+('empresa', 'empresa@gmail.com', 'empresa1234'),
+('admin', 'admin@gmail.com', 'admin1234');
 
-select * from usuarios;
+SELECT * FROM usuarios;
