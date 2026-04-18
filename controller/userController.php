@@ -71,7 +71,7 @@ class UserController
         session_unset();   // Vacía variables de sesión
         session_destroy(); // Destruye la sesión
 
-        header("Location: form_login.php");
+        header("Location: /HiloRojo/View/formularios/formulario_inicio_sesion_usuario.php");
         exit;
     }
 
