@@ -1,8 +1,6 @@
 <?php
 session_start();
 
-
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user = new UserController();
     //Check button
@@ -31,15 +29,14 @@ class UserController
         $username = "sql7823505";
         $contrasena = "JJqbGjIaYI";
         $dbname = "sql7823505";
-        echo "en constructor";
+        
 
         $this->conn = new mysqli($servername, $username, $contrasena, $dbname);
 
-        if ($this->conn->connect_error) {
-            echo "Connected error";
-            // die("Connection failed: " . $this->conn->connect_error);
+        if ($this->conn->connect_error) { 
+            die("Connection failed: " . $this->conn->connect_error);
         } else {
-            echo "Connected successfully";
+            
         }
     }
 
@@ -61,10 +58,11 @@ class UserController
             $_SESSION["email"] = $fila["email"];
             $_SESSION["contrasena"] = $fila["contrasena"];
 
-            header("Location: /HiloRojo/index.html");
+            header("Location: /HiloRojo/View/VerPerfil.html");
             exit;
         } else {
-            echo "Login incorrecto";
+            header("Location: /HiloRojo/View/formularios/formulario_inicio_sesion_usuario.php?error=1");
+            exit;
         }
     }
 

@@ -1,3 +1,10 @@
+<?php
+if (isset($_GET['error'])) {
+    echo "<p style='color:red; text-align:center;'>Email o contraseña incorrectos</p>";
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 
