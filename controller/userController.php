@@ -45,9 +45,9 @@ class UserController
 
     public function login(): void
     {
-        $email = $_POST["email"];
-        $contrasena = $_POST["contrasena"];
-        $sql = "SELECT * FROM sql7822561 WHERE usuarios = ? AND contrasena = ?";
+        $email = $_POST["email"] ?? "";
+        $contrasena = $_POST["contrasena"] ?? "";
+        $sql = "SELECT * FROM usuarios WHERE email = ? AND contrasena = ?";
 
         $stmt = $this->conn->prepare($sql);
 
@@ -60,12 +60,12 @@ class UserController
             $_SESSION["logged"] = true;
             $_SESSION["email"] = $fila["email"];
             $_SESSION["contrasena"] = $fila["contrasena"];
+            echo "Email: el primero " . $fila['email'];
             header("Location: index.html?error = No ha funcionado");
-
-            echo "Email: el primero" . $fila['email'[0]];
+            
         }
 
-        echo "Email: el segundo " . $fila['email'[1]];
+        echo "Email: el segundo " . $fila['email'];
     }
 
     public function logout(): void
