@@ -60,12 +60,12 @@ class UserController
             $_SESSION["logged"] = true;
             $_SESSION["email"] = $fila["email"];
             $_SESSION["contrasena"] = $fila["contrasena"];
-            echo "Email: el primero " . $fila['email'];
-            header("Location: index.html?error = No ha funcionado");
-            
-        }
 
-        echo "Email: el segundo " . $fila['email'];
+            header("Location: index.html");
+            exit;
+        } else {
+            echo "Login incorrecto";
+        }
     }
 
     public function logout(): void
