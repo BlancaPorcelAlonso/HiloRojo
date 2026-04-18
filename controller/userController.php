@@ -61,7 +61,7 @@ class UserController
             $_SESSION["email"] = $fila["email"];
             $_SESSION["contrasena"] = $fila["contrasena"];
 
-            header("Location: index.html");
+            header("Location: /HiloRojo/index.html");
             exit;
         } else {
             echo "Login incorrecto";
