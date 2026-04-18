@@ -1,10 +1,3 @@
-<?php
-if (isset($_GET['error'])) {
-    echo "<p style='color:red; text-align:center;'>Email o contraseña incorrectos</p>";
-}
-?>
-
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -47,6 +40,7 @@ if (isset($_GET['error'])) {
                 </div>
             </div>
         </header>
+
         <main>
         <section class="formulario"> <!-- contenido con formulario -->
             <div id=cabecera_titulo> <!-- cabecera con titulo del apartado -->
@@ -90,6 +84,13 @@ if (isset($_GET['error'])) {
                         <button type="submit" name="login" class="btn-submit">
                             ENTRAR
                         </button>
+
+                                <?php
+                        if (isset($_GET['error'])) {
+                            echo "<p style='color:red; text-align:center;'>Email o contraseña incorrectos</p>";
+                        }
+                        ?>
+
                         <p class="sin-cuenta">NO TIENES UNA CUENTA? <a href="formulario_crear_usuario.html"
                                 class="link-crear">CREAR UNA</a></p>
 
