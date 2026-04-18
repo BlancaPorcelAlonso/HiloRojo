@@ -439,11 +439,11 @@ input[name="poblacion"]:user-invalid+span {
   margin-top: 10px;
 }
 
-input[name="password"]+span {
+input[name="contrasena"]+span {
   display: none;
 }
 
-input[name="password"]:user-invalid+span {
+input[name="contrasena"]:user-invalid+span {
   display: block;
   color: rgb(210, 0, 0);
   margin-bottom: 20px;
