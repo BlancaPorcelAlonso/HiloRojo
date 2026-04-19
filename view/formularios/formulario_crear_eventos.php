@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
+    header("Location: /HiloRojo/view/formularios/formulario_inicio_sesion_usuario.php?error=login_required");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
