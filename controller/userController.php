@@ -112,14 +112,6 @@ class UserController
         exit;
     }
 
-    public function register(): void
-    {
-        Me parece un cambio muy inteligente. Validar que el mail tenga una arroba es el "filtro mínimo" para que un correo parezca un correo, y es mucho mejor que solo contar letras. Sigue siendo sencillo para testear pero ya tiene cara de validación real.
-
-Aquí tienes el código actualizado para tu UserController.php. He usado la función strpos(), que busca una pieza de texto dentro de otra:
-Código de Validación en UserController.php
-PHP
-
 public function register(): void
 {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
