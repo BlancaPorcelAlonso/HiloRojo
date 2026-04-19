@@ -57,11 +57,31 @@ class UserController
             $_SESSION["logged"] = true;
             $_SESSION["email"] = $fila["email"];
             $_SESSION["contrasena"] = $fila["contrasena"];
+            $_SESSION["user_id"] = $fila["id"] ?? null;
 
-            header("Location: /HiloRojo/View/VerPerfil.html");
+            // Determinar rol: usar columna 'role' si existe, si no aplicar heurística simple
+            $role = 'user';
+            if (isset($fila['role']) && !empty($fila['role'])) {
+                $role = $fila['role'];
+            } else {
+                $nombreLower = strtolower($fila['nombre'] ?? '');
+                $emailLower = strtolower($fila['email'] ?? '');
+                if (strpos($nombreLower, 'empresa') !== false || strpos($emailLower, 'empresa') !== false || strpos($emailLower, 'company') !== false) {
+                    $role = 'company';
+                }
+            }
+
+            $_SESSION['role'] = $role;
+
+            // Redirigir según rol (usuarios a perfil; empresas al formulario de eventos)
+            if ($role === 'user') {
+                header("Location: /HiloRojo/view/VerPerfil.php");
+            } else {
+                header("Location: /HiloRojo/view/formularios/formulario_crear_eventos.php");
+            }
             exit;
         } else {
-            header("Location: /HiloRojo/View/formularios/formulario_inicio_sesion_usuario.php?error=1");
+            header("Location: /HiloRojo/view/formularios/formulario_inicio_sesion_usuario.php?error=1");
             exit;
         }
     }
@@ -71,7 +91,7 @@ class UserController
         session_unset();   // Vacía variables de sesión
         session_destroy(); // Destruye la sesión
 
-        header("Location: /HiloRojo/View/formularios/formulario_inicio_sesion_usuario.php");
+        header("Location: /HiloRojo/view/formularios/formulario_inicio_sesion_usuario.php");
         exit;
     }
 
@@ -121,12 +141,19 @@ class UserController
             echo "Error: " . $stmt->error;
         }
 
+        $insertId = $this->conn->insert_id ?? null;
         $stmt->close();
         $this->conn->close();
 
 
         // return o redirect header
-        // header("Location: ../view/VerPerfil.html");
+        // Tras registro, iniciar sesión como usuario por defecto y redirigir al perfil
+        $_SESSION['logged'] = true;
+        $_SESSION['email'] = $email;
+        $_SESSION['user_id'] = $insertId;
+        $_SESSION['role'] = 'user';
+
+        header("Location: /HiloRojo/view/VerPerfil.php");
         exit;
     }
 }

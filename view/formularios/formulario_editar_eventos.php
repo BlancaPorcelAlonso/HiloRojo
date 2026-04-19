@@ -1,3 +1,19 @@
+<?php
+session_start();
+if (!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
+    header("Location: /HiloRojo/view/formularios/formulario_inicio_sesion_usuario.php?error=login_required");
+    exit;
+}
+
+// Solo accesible a cuentas que NO sean usuarios.
+if (!isset($_SESSION['role']) || $_SESSION['role'] === 'user') {
+    echo '<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><title>Acceso restringido</title></head><body>';
+    echo '<p>Esta sección está reservada a empresas. Si tienes una cuenta de usuario, accede a tu perfil.</p>';
+    echo '<p><a href="/HiloRojo/index.html">Volver al inicio</a></p>';
+    echo '</body></html>';
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -11,15 +27,15 @@
 <body>
     <div id="contenedor">
 
-        <div id="cabecera_superior"> <!-- cabecera superior con titulo y logo -->
-            <div class="cojunto_cabezera">
+        <div id="cabecera_superior"> 
+                <div class="cojunto_cabezera">
                 <img src="../assets/logo en blanco.png" alt="logo">
                 <h1>EL HILO ROJO</h1>
             </div>
         </div>
         <main>
-        <section class="formulario"> <!-- contenido con formulario -->
-            <div id=cabecera_titulo> <!-- cabecera con titulo del apartado -->
+        <section class="formulario"> 
+            <div id=cabecera_titulo> 
                 <h2> EDITAR EVENTO </h2>
             </div>
             <form action="accio.php" autocomplete="on" method="get">
@@ -29,40 +45,32 @@
                     <div class="col-izq">
                         <h3>Fotografías subidas</h3>
 
-                        <!-- ✅ Esto ahora es un placeholder -->
                         <div class="preview-foto">Vista previa</div>
 
-                        <!-- ✅ type="button" correcto para que no envíe el form -->
                         <button type="button">Agregar fotos</button>
                     </div>
 
-                    <!-- COLUMNA DERECHA -->
                     <div class="col-der">
 
-                        <!-- forms nombre -->
                         <label for="nombre"> NOMBRE DEL EVENTO </label>
                         <input type="text" name="nombre" id="nombre" required pattern="[A-Za-z]{3,}" placeholder=""
                             title="Debe tener al menos 3 caracteres y solo letras" /> <!-- si son letras y minimo 3 -->
 
 
-                        <!-- forms cuidad -->
                         <label for="descripcion"> DESCRIPCIÓN</label>
                         <input type="text" name="descripcion" id="descripcion" required required pattern="[A-Za-z]{3,}"
                             placeholder=""
                             title="Debe tener al menos 3 caracteres y solo letras" /><!-- placeholder nos sirve para que se vea en gris el ejemplo -->
 
-                        <!-- forms direccion -->
                         <label for="direccion">Escribe la dirección:</label>
                         <input type="text" name="direccion" id="direccion" required required pattern="[A-Za-z]{3,}"
                             placeholder=""
                             title="Debe tener al menos 3 caracteres y solo letras" /><!-- placeholder nos sirve para que se vea en gris el ejemplo -->
 
 
-                        <!--  forms fecha de nacimiento  -->
                         <label for="fecha_nacimiento">Escribe la fecha:</label>
                         <input type="date" name="fecha" id="fecha" max="2008-12-31" />
 
-                        <!-- BOTÓN SUBMIT -->
                         <div class="botones-form">
                             <button type="submit" class="btn-submit">
                                 ACTUALIZAR

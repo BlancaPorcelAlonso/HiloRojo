@@ -1,3 +1,19 @@
+<?php
+session_start();
+if (!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
+    header("Location: /HiloRojo/view/formularios/formulario_inicio_sesion_usuario.php?error=login_required");
+    exit;
+}
+
+// Solo accesible a usuarios
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'user') {
+    echo '<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><title>Acceso restringido</title></head><body>';
+    echo '<p>Esta sección está reservada a perfiles de usuario. Si has accedido como empresa, usa el panel de empresas.</p>';
+    echo '<p><a href="/HiloRojo/index.html">Volver al inicio</a></p>';
+    echo '</body></html>';
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -55,7 +71,7 @@
                     Intereses: <span>****</span>
                 </p>
                 <section class="me-apunto-wrapper">
-                    <a href="./formularios/formulario_editar_usuario.html" class="me-apunto-box" id="meApuntoBtn">
+                    <a href="./formularios/formulario_editar_usuario.php" class="me-apunto-box" id="meApuntoBtn">
                         Editar perfil
                     </a>
                 </section>
