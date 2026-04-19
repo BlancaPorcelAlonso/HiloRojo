@@ -73,7 +73,7 @@ class UserController
         $email = $_POST["email"] ?? "";
         $contrasena = $_POST["contrasena"] ?? "";
 
-        $sql = "SELECT * FROM usuarios WHERE email = ?";
+        $sql = "SELECT * FROM usuarios WHERE email = ? AND contrasena = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("ss", $email, $contrasena);
         $stmt->execute();
