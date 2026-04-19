@@ -170,4 +170,4 @@ public function register(): void
         }
         exit;
     }
-} 
+} }
