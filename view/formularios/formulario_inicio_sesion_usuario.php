@@ -87,7 +87,14 @@
 
                                 <?php
                         if (isset($_GET['error'])) {
-                            echo "<p style='color:red; text-align:center;'>Email o contraseña incorrectos</p>";
+                            $e = $_GET['error'];
+                            if ($e === 'contrasena_incorrecta') {
+                                echo "<p style='color:red; text-align:center;'>contraseña incorrecta</p>";
+                            } elseif ($e === 'email_no_registrado') {
+                                echo "<p style='color:red; text-align:center;'>email no registrado</p>";
+                            } else {
+                                echo "<p style='color:red; text-align:center;'>datos incorrectos</p>";
+                            }
                         }
                         ?>
 

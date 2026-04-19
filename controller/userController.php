@@ -72,8 +72,8 @@ class UserController
     {
         $email = $_POST["email"] ?? "";
         $contrasena = $_POST["contrasena"] ?? "";
-        $sql = "SELECT * FROM usuarios WHERE email = ? AND contrasena = ?";
 
+        $sql = "SELECT * FROM usuarios WHERE email = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("ss", $email, $contrasena);
         $stmt->execute();
@@ -99,7 +99,7 @@ class UserController
             header("Location: /HiloRojo/view/index.html");
             exit;
         } else {
-            header("Location: /HiloRojo/view/formularios/formulario_inicio_sesion_usuario.php?error=1");
+            header("Location: /HiloRojo/view/formularios/formulario_inicio_sesion_usuario.php?error=email_no_registrado");
             exit;
         }
     }
