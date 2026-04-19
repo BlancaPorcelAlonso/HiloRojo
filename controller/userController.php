@@ -114,6 +114,29 @@ class UserController
 
     public function register(): void
     {
+        Me parece un cambio muy inteligente. Validar que el mail tenga una arroba es el "filtro mínimo" para que un correo parezca un correo, y es mucho mejor que solo contar letras. Sigue siendo sencillo para testear pero ya tiene cara de validación real.
+
+Aquí tienes el código actualizado para tu UserController.php. He usado la función strpos(), que busca una pieza de texto dentro de otra:
+Código de Validación en UserController.php
+PHP
+
+public function register(): void
+{
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $email = $_POST["email"] ?? "";
+        $password = $_POST["password"] ?? "";
+
+        
+        if (strpos($email, "@") === false) {
+            header("Location: /HiloRojo/view/formularios/formulario_crear_usuario.php?error=mail_sin_arroba");
+            exit;
+        }
+
+        if (strlen($password) <= 4) {
+            header("Location: /HiloRojo/view/formularios/formulario_crear_usuario.php?error=pass_corta");
+            exit;
+        }
+
         $nombre = trim($_POST["nombre"] ?? "");
         $email = trim($_POST["email"] ?? "");
         $contrasena = $_POST["contrasena"] ?? "";
