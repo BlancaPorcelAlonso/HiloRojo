@@ -44,40 +44,41 @@ class UserController
     {
         $email = $_POST["email"] ?? "";
         $contrasena = $_POST["contrasena"] ?? "";
-        $sql = "SELECT * FROM usuarios WHERE email = ? AND contrasena = ?";
 
+        $sql = "SELECT * FROM usuarios WHERE email = ?";
         $stmt = $this->conn->prepare($sql);
-
-        $stmt->bind_param("ss", $email, $contrasena);
-
+        $stmt->bind_param("s", $email);
         $stmt->execute();
         $result = $stmt->get_result();
 
         if ($fila = $result->fetch_assoc()) {
-            $_SESSION["logged"] = true;
-            $_SESSION["email"] = $fila["email"];
-            $_SESSION["contrasena"] = $fila["contrasena"];
-            $_SESSION["user_id"] = $fila["id"] ?? null;
+            if ($fila['contrasena'] === $contrasena) {
+                $_SESSION["logged"] = true;
+                $_SESSION["email"] = $fila["email"];
+                $_SESSION["contrasena"] = $fila["contrasena"];
+                $_SESSION["user_id"] = $fila["id"] ?? null;
 
-            // Determinar rol: usar columna 'role' si existe, si no aplicar heurística simple
-            $role = 'user';
-            if (isset($fila['role']) && !empty($fila['role'])) {
-                $role = $fila['role'];
-            } else {
-                $nombreLower = strtolower($fila['nombre'] ?? '');
-                $emailLower = strtolower($fila['email'] ?? '');
-                if (strpos($nombreLower, 'empresa') !== false || strpos($emailLower, 'empresa') !== false || strpos($emailLower, 'company') !== false) {
-                    $role = 'company';
+                $role = 'user';
+                if (isset($fila['role']) && !empty($fila['role'])) {
+                    $role = $fila['role'];
+                } else {
+                    $nombreLower = strtolower($fila['nombre'] ?? '');
+                    $emailLower = strtolower($fila['email'] ?? '');
+                    if (strpos($nombreLower, 'empresa') !== false || strpos($emailLower, 'empresa') !== false || strpos($emailLower, 'company') !== false) {
+                        $role = 'company';
+                    }
                 }
+
+                $_SESSION['role'] = $role;
+
+                header("Location: /HiloRojo/view/index.html");
+                exit;
+            } else {
+                header("Location: /HiloRojo/view/formularios/formulario_inicio_sesion_usuario.php?error=contrasena_incorrecta");
+                exit;
             }
-
-            $_SESSION['role'] = $role;
-
-            // Login correcto: redirigir a la página principal.
-            header("Location: /HiloRojo/view/index.html");
-            exit;
         } else {
-            header("Location: /HiloRojo/view/formularios/formulario_inicio_sesion_usuario.php?error=1");
+            header("Location: /HiloRojo/view/formularios/formulario_inicio_sesion_usuario.php?error=email_no_registrado");
             exit;
         }
     }
