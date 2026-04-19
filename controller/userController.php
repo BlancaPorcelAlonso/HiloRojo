@@ -73,12 +73,8 @@ class UserController
 
             $_SESSION['role'] = $role;
 
-            // Redirigir según rol (usuarios a perfil; empresas al formulario de eventos)
-            if ($role === 'user') {
-                header("Location: /HiloRojo/view/VerPerfil.php");
-            } else {
-                header("Location: /HiloRojo/view/formularios/formulario_crear_eventos.php");
-            }
+            // Login correcto: redirigir a la página principal.
+            header("Location: /HiloRojo/view/index.html");
             exit;
         } else {
             header("Location: /HiloRojo/view/formularios/formulario_inicio_sesion_usuario.php?error=1");
