@@ -12,7 +12,7 @@
 
     <header id="cabecera">
         <div class="logo">
-            <a href="index.html">
+            <a href="index.php">
                 <img src="assets/logo_cabecera_nombre_logo.png" id="logo_completo" alt="Logo_completo">
                 <img src="assets/logo en blanco.png" id="logo_solo" alt="Logo_solo"></a>
         </div>
@@ -25,7 +25,7 @@
             </form>
 
             <div class="usuario">
-                <a href="formularios/formulario_crear_usuario.html" class="btn-registro">
+                <a href="formularios/formulario_crear_usuario.php" class="btn-registro">
                     Registro
                 </a>
 
@@ -33,7 +33,7 @@
                     Iniciar sesión
                 </a>
                 <!-- Botón único para móvil -->
-                <a href="formularios/formulario_inicio_sesion_usuario.html" class="btn-usuario">
+                <a href="formularios/formulario_inicio_sesion_usuario.php" class="btn-usuario">
                 </a>
             </div>
         </div>
