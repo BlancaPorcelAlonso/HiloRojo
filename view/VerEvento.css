@@ -323,7 +323,7 @@ a:active {
     align-items: center;
 }
 
-.photo-area video {
+.photo-area img {
     width: 100%;
     max-width: 520px;
     height: auto;
