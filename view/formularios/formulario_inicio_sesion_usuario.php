@@ -14,7 +14,7 @@
 
         <header id="cabecera">
             <div class="logo">
-                <a href="../index.html">
+                <a href="../index.php">
                 <img src="../assets/logo_cabecera_nombre_logo.png" id="logo_completo" alt="Logo completo de El Hilo Rojo con nombre y símbolo">
                 <img src="../assets/logo_en_blanco.png" id="logo_solo" alt="Logo en blanco de El Hilo Rojo"></a>
             </div>
@@ -68,7 +68,7 @@
                         <!-- forms pasword -->
                         <label for="password">Escribe tu contraseña:</label>
                         <input type="password" name="contrasena" id="password" required
-                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$" placeholder=""
+                            placeholder=""
                             title=" Minimo 8 caracteres, debe incluir numeros, mayusculas y minusculas" />
 
                         <div class="fila-aux">
@@ -114,7 +114,7 @@
             <a href="#sobre-nosotros">Sobre nosotros</a>
             <a href="#ayuda">Ayuda</a>
             <a href="#contacto">Contacto</a>
-            <a href="../index.html">Home</a>
+            <a href="../index.php">Home</a>
         </nav>
 
     </footer>

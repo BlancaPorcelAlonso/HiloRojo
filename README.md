@@ -23,7 +23,7 @@ El flujo principal está controlado por `controller/userController.php`.
 3. Si el registro es exitoso, el sistema inicia sesión automáticamente y redirige a `view/VerPerfil.php`.
 4. Para iniciar sesión, el usuario usa `view/formularios/formulario_inicio_sesion_usuario.php`.
 5. El controlador valida las credenciales consultando la tabla `usuarios` de la base de datos.
-6. Si el acceso es correcto, el sistema establece variables de sesión y redirige al usuario a `view/index.html`.
+6. Si el acceso es correcto, el sistema establece variables de sesión y redirige al usuario a `view/index.php`.
 7. Para ver eventos, se utiliza `controller/userController.php?action=ver_evento&pagina=evento_ejemploX`; el acceso se valida con `verificarAcceso()`.
 
 ### Diagrama de flujo: Ciclo de vida de una petición de usuario
@@ -84,7 +84,7 @@ sequenceDiagram
     DB-->>Servidor: Resultado de la consulta
     alt credenciales válidas
         Servidor->>Servidor: crea $_SESSION y rol
-        Servidor->>Navegador: Redirect a /HiloRojo/view/index.html
+        Servidor->>Navegador: Redirect a /HiloRojo/view/index.php
     else credenciales inválidas
         Servidor->>Navegador: Redirect con error
     end

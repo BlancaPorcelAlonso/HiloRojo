@@ -7,6 +7,11 @@ if (isset($_GET["action"]) && $_GET["action"] == "ver_evento") {
     $paginaSolicitada = $_GET["pagina"] ?? "";
     $user->verificarAcceso($paginaSolicitada);
 }
+if (isset($_GET["action"])) {
+    if ($_GET["action"] == "apuntarse") {
+        $user->apuntarse();
+    }
+}
 
 // B) Lógica para formularios (POST)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -40,9 +45,9 @@ class UserController
 
     public function verificarAcceso($pagina): void
     {
-        if (!isset($_SESSION["logged"]) || $_SESSION["logged"] !== true) {
-            header("Location: /HiloRojo/view/formularios/formulario_crear_usuario.html");
-            exit;
+         if(!isset($_SESSION["logged"]) || $_SESSION["logged"] !== true) {
+          header("Location: /HiloRojo/view/formularios/formulario_crear_usuario.php");
+          exit;
         }
 
         // Selección de página
@@ -63,10 +68,21 @@ class UserController
         } elseif ($pagina == "evento_ejemplo8") {
             header("Location: /HiloRojo/view/eventos/evento_ejemplo8.html");
         } else {
-            header("Location: /HiloRojo/view/formularios/formulario_crear_usuario.html");
+            header("Location: /HiloRojo/view/formularios/formulario_crear_usuario.php");
         }
         exit;
     } // Aquí termina verificarAcceso correctamente
+
+    public function apuntarse(): void
+{
+    if (!isset($_SESSION["logged"]) || $_SESSION["logged"] !== true) {
+        header("Location: /HiloRojo/view/formularios/formulario_inicio_sesion_usuario.php");
+        exit;
+    }
+
+    // Aquí luego guardarías en BD que el usuario se apunta
+    header("Location: /HiloRojo/view/confirmacion.php");
+}
 
     public function login(): void
     {
@@ -96,7 +112,7 @@ class UserController
             }
             $_SESSION['role'] = $role;
 
-            header("Location: /HiloRojo/view/index.html");
+            header("Location: /HiloRojo/view/index.php");
             exit;
         } else {
             header("Location: /HiloRojo/view/formularios/formulario_inicio_sesion_usuario.php?error=email_no_registrado");
@@ -135,14 +151,14 @@ public function register(): void
         $passwordRepeat = $_POST["passwordRepeat"] ?? "";
 
         if ($contrasena !== $passwordRepeat) {
-            header("Location: formulario_crear_usuario.html?error=Las contraseñas no coinciden");
+            header("Location: formulario_crear_usuario.php?error=Las contraseñas no coinciden");
             exit;
         }
 
         $sql = "SELECT email FROM usuarios WHERE email = '$email'";
         $resultado = $this->conn->query($sql);
         if ($resultado->num_rows > 0) {
-            header("Location: formulario_crear_usuario.html?error=El email ya está registrado");
+            header("Location: formulario_crear_usuario.php?error=El email ya está registrado");
             exit;
         }
 
@@ -158,7 +174,7 @@ public function register(): void
             $_SESSION['role'] = 'user';
             header("Location: /HiloRojo/view/VerPerfil.php");
         } else {
-            header("Location: formulario_crear_usuario.html?error=error_db");
+            header("Location: formulario_crear_usuario.php?error=error_db");
         }
         exit;
     }

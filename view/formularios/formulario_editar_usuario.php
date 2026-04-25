@@ -9,7 +9,7 @@ if (!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'user') {
     echo '<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><title>Acceso restringido</title></head><body>';
     echo '<p>Lo sentimos, esta sección está reservada a usuarios individuales. Si entraste como empresa, accede al panel correspondiente.</p>';
-    echo '<p><a href="/HiloRojo/index.html">Volver al inicio</a></p>';
+    echo '<p><a href="/HiloRojo/index.php">Volver al inicio</a></p>';
     echo '</body></html>';
     exit;
 }
@@ -29,7 +29,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'user') {
 
         <header id="cabecera">
             <div class="logo">
-                <a href="../index.html">
+                <a href="../index.php">
                     <img src="../assets/logo_cabecera_nombre_logo.png" id="logo_completo" alt="Logo_completo">
                     <img src="../assets/logo_en_blanco.png" id="logo_solo" alt="Logo_solo"></a>
             </div>
@@ -131,7 +131,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'user') {
             <a href="#sobre-nosotros">Sobre nosotros</a>
             <a href="#ayuda">Ayuda</a>
             <a href="#contacto">Contacto</a>
-            <a href="../index.html">Home</a>
+            <a href="../index.php">Home</a>
         </nav>
 
     </footer>
