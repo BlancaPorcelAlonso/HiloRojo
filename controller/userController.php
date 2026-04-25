@@ -132,7 +132,7 @@ public function register(): void
 {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST["email"] ?? "";
-        $password = $_POST["password"] ?? "";
+        $password = $_POST["contrasena"] ?? "";
 
         
         if (strpos($email, "@") === false) {
