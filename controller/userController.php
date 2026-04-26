@@ -81,7 +81,7 @@ class UserController
     }
 
     // Aquí luego guardarías en BD que el usuario se apunta
-    header("Location: /HiloRojo/view/confirmacion.php");
+    header("Location: /HiloRojo/view/VerPerfil.php?message=apuntado");
 }
 
     public function login(): void

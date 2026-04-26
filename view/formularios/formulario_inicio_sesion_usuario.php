@@ -27,7 +27,7 @@
                 </form>
 
                 <div class="usuario">
-                    <a href="formulario_crear_usuario.html" class="btn-registro">
+                    <a href="formulario_crear_usuario.php" class="btn-registro">
                         Registro
                     </a>
 
@@ -35,7 +35,7 @@
                         Iniciar sesión
                     </a>
                     <!-- Botón único para móvil -->
-                    <a href="formulario_inicio_sesion_usuario.html" class="btn-usuario">
+                    <a href="formulario_inicio_sesion_usuario.php" class="btn-usuario">
                     </a>
                 </div>
             </div>
@@ -98,7 +98,7 @@
                         }
                         ?>
 
-                        <p class="sin-cuenta">NO TIENES UNA CUENTA? <a href="formulario_crear_usuario.html"
+                        <p class="sin-cuenta">NO TIENES UNA CUENTA? <a href="formulario_crear_usuario.php"
                                 class="link-crear">CREAR UNA</a></p>
 
                     </div>

@@ -42,7 +42,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'user') {
                 </form>
 
                 <div class="usuario">
-                    <a href="formulario_crear_usuario.html" class="btn-registro">
+                    <a href="formulario_crear_usuario.php" class="btn-registro">
                         Registro
                     </a>
 
@@ -50,7 +50,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'user') {
                         Iniciar sesión
                     </a>
                     <!-- Botón único para móvil -->
-                    <a href="formulario_inicio_sesion_usuario.html" class="btn-usuario">
+                    <a href="formulario_inicio_sesion_usuario.php" class="btn-usuario">
                     </a>
                 </div>
             </div>

@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION["logged"]) || $_SESSION["logged"] !== true) {
-    header("Location: formulario_crear_usuario.html");
+    header("Location: formulario_crear_usuario.php");
     exit;
 }
 ?>

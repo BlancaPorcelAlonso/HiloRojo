@@ -262,7 +262,7 @@ button,
     height: 52px;
 
     background-color: #a80404;
-    color: #fff;
+    color: white !important;
     font-weight: 600;
     letter-spacing: 1px;
     font-size: 14px;
