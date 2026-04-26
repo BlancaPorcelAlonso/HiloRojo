@@ -62,7 +62,7 @@ a,
 a:visited,
 a:hover,
 a:active {
-    color: inherit;
+    
     text-decoration: none;
 }
 
@@ -262,7 +262,6 @@ button,
     height: 52px;
 
     background-color: #a80404;
-    color: white !important;
     font-weight: 600;
     letter-spacing: 1px;
     font-size: 14px;
@@ -280,9 +279,9 @@ html {
 }
 
 /* Hover lujo minimal */
-.btn-inicio:hover {
-    background-color: #fff;
-    color: #a80404;
+a.btn-inicio:hover {
+    background-color: #ffffff;
+    color: #a80404 !;
     transform: translateY(-2px);
 }
 
@@ -332,7 +331,6 @@ html {
     /* nunca más grande del 10% de la pantalla */
     padding: 20px;
 }
-
 
 
 /* GRID de 3 tarjetas */
