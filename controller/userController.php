@@ -36,18 +36,27 @@ class UserController
         $contrasena = "66E6mahs6E";
         $dbname = "sql7824380";
 
-        $this->conn = new mysqli($servername, $username, $contrasena, $dbname);
+        try {
+            $dsn = "mysql:host=$servername;dbname=$dbname;charset=utf8mb4";
 
-        if ($this->conn->connect_error) {
-            die("Connection failed: " . $this->conn->connect_error);
+            $opciones = [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,  // Modo de errores
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,  // Modo de fetch
+                PDO::ATTR_EMULATE_PREPARES => false  // No emular prepared statements
+            ];
+            $pdo = new PDO($dsn, $username, $contrasena, $opciones);
+            $this->conn = $pdo;
+
+        } catch (PDOException $e) {
+            die("Error de conexión: " . $e->getMessage());
         }
     }
 
     public function verificarAcceso($pagina): void
     {
-         if(!isset($_SESSION["logged"]) || $_SESSION["logged"] !== true) {
-          header("Location: /HiloRojo/view/formularios/formulario_crear_usuario.php");
-          exit;
+        if (!isset($_SESSION["logged"]) || $_SESSION["logged"] !== true) {
+            header("Location: /HiloRojo/view/formularios/formulario_crear_usuario.php");
+            exit;
         }
 
         // Selección de página
@@ -74,15 +83,15 @@ class UserController
     } // Aquí termina verificarAcceso correctamente
 
     public function apuntarse(): void
-{
-    if (!isset($_SESSION["logged"]) || $_SESSION["logged"] !== true) {
-        header("Location: /HiloRojo/view/formularios/formulario_inicio_sesion_usuario.php");
-        exit;
-    }
+    {
+        if (!isset($_SESSION["logged"]) || $_SESSION["logged"] !== true) {
+            header("Location: /HiloRojo/view/formularios/formulario_inicio_sesion_usuario.php");
+            exit;
+        }
 
-    // Aquí luego guardarías en BD que el usuario se apunta
-    header("Location: /HiloRojo/view/VerPerfil.php?message=apuntado");
-}
+        // Aquí luego guardarías en BD que el usuario se apunta
+        header("Location: /HiloRojo/view/VerPerfil.php?message=apuntado");
+    }
 
     public function login(): void
     {
@@ -91,11 +100,9 @@ class UserController
 
         $sql = "SELECT * FROM usuarios WHERE email = ? AND contrasena = ?";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("ss", $email, $contrasena);
-        $stmt->execute();
-        $result = $stmt->get_result();
+        $stmt->execute([$email, $contrasena]);
 
-        if ($fila = $result->fetch_assoc()) {
+        if ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $_SESSION["logged"] = true;
             $_SESSION["email"] = $fila["email"];
             $_SESSION["user_id"] = $fila["id"] ?? null;
@@ -128,54 +135,55 @@ class UserController
         exit;
     }
 
-public function register(): void
-{
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $email = $_POST["email"] ?? "";
-        $password = $_POST["contrasena"] ?? "";
+    public function register(): void
+    {
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $email = $_POST["email"] ?? "";
+            $password = $_POST["contrasena"] ?? "";
 
-        
-        if (strpos($email, "@") === false) {
-            header("Location: /HiloRojo/view/formularios/formulario_crear_usuario.php?error=mail_sin_arroba");
+
+            if (strpos($email, "@") === false) {
+                header("Location: /HiloRojo/view/formularios/formulario_crear_usuario.php?error=mail_sin_arroba");
+                exit;
+            }
+
+            if (strlen($password) <= 4) {
+                header("Location: /HiloRojo/view/formularios/formulario_crear_usuario.php?error=pass_corta");
+                exit;
+            }
+
+            $nombre = trim($_POST["nombre"] ?? "");
+            $email = trim($_POST["email"] ?? "");
+            $contrasena = $_POST["contrasena"] ?? "";
+            $passwordRepeat = $_POST["passwordRepeat"] ?? "";
+
+            if ($contrasena !== $passwordRepeat) {
+                header("Location: formulario_crear_usuario.php?error=Las contraseñas no coinciden");
+                exit;
+            }
+
+            $sql = "SELECT email FROM usuarios WHERE email = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([$email]);
+            if ($stmt->rowCount() > 0) {
+                header("Location: formulario_crear_usuario.php?error=El email ya está registrado");
+                exit;
+            }
+
+            $sql = "INSERT INTO usuarios (nombre, email, contrasena) VALUES (?, ?, ?)";
+            $stmt = $this->conn->prepare($sql);
+
+            if ($stmt->execute([$nombre, $email, $contrasena])) {
+                $insertId = $this->conn->lastInsertId();
+                $_SESSION['logged'] = true;
+                $_SESSION['email'] = $email;
+                $_SESSION['user_id'] = $insertId;
+                $_SESSION['role'] = 'user';
+                header("Location: /HiloRojo/view/VerPerfil.php");
+            } else {
+                header("Location: formulario_crear_usuario.php?error=error_db");
+            }
             exit;
         }
-
-        if (strlen($password) <= 4) {
-            header("Location: /HiloRojo/view/formularios/formulario_crear_usuario.php?error=pass_corta");
-            exit;
-        }
-
-        $nombre = trim($_POST["nombre"] ?? "");
-        $email = trim($_POST["email"] ?? "");
-        $contrasena = $_POST["contrasena"] ?? "";
-        $passwordRepeat = $_POST["passwordRepeat"] ?? "";
-
-        if ($contrasena !== $passwordRepeat) {
-            header("Location: formulario_crear_usuario.php?error=Las contraseñas no coinciden");
-            exit;
-        }
-
-        $sql = "SELECT email FROM usuarios WHERE email = '$email'";
-        $resultado = $this->conn->query($sql);
-        if ($resultado->num_rows > 0) {
-            header("Location: formulario_crear_usuario.php?error=El email ya está registrado");
-            exit;
-        }
-
-        $sql = "INSERT INTO usuarios (nombre, email, contrasena) VALUES (?, ?, ?)";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("sss", $nombre, $email, $contrasena);
-
-        if ($stmt->execute()) {
-            $insertId = $this->conn->insert_id;
-            $_SESSION['logged'] = true;
-            $_SESSION['email'] = $email;
-            $_SESSION['user_id'] = $insertId;
-            $_SESSION['role'] = 'user';
-            header("Location: /HiloRojo/view/VerPerfil.php");
-        } else {
-            header("Location: formulario_crear_usuario.php?error=error_db");
-        }
-        exit;
     }
-} }
+}
