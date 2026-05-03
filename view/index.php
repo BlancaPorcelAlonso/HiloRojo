@@ -59,54 +59,33 @@
 
             <section id="slider">
                 <div class="your-class">
-                    <div class="slide-card">Contenido 1</div>
-                    <div class="slide-card">Contenido 2</div>
-                    <div class="slide-card">Contenido 3</div>
-                    <div class="slide-card">Contenido 4</div>
+                    <div class="slide-card-slider">
+                        <a href="eventos/evento_ejemplo1.html">
+                            <img src="assets/Ejemplo_evento_1.png" alt="imagen de evento" />
+                        </a>
+                        <h3> GAME NIGHT DATING </h3>
+                    </div>
+                    <div class="slide-card-slider">
+                        <a href="eventos/evento_ejemplo5.html">
+                            <img src="assets/Ejemplo_evento_5.jpg" alt="imagen de evento" />
+                        </a>
+                        <h3>CITAS NOCTURNAS</h3>
+                    </div>
+                    <div class="slide-card-slider">
+                        <a href="eventos/evento_ejemplo3.html">
+                            <img src="assets/Ejemplo_evento_3.png" alt="imagen evento" />
+                        </a>
+                        <h3> ENTRE CALÇOTS</h3>
+                    </div>
+                    <div class="slide-card-slider">
+                        <a href="eventos/evento_ejemplo4.html">
+                            <img src="assets/Ejemplo_evento_4.png" alt="imagen de evento" />
+                        </a>
+                        <h3>PINK LOVE EXPERIENCE</h3>
+                    </div>
                 </div>
             </section>
-            <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-            <script src="slick/slick.min.js"></script>
 
-            <script>
-                $(document).ready(function () {
-                    $('.your-class').slick({
-                        dots: true,
-                        infinite: true,
-                        speed: 300,
-                        slidesToShow: 3,
-                        slidesToScroll: 3,
-                        responsive: [
-                            {
-                                breakpoint: 1024,
-                                settings: {
-                                    slidesToShow: 3,
-                                    slidesToScroll: 3,
-                                    infinite: true,
-                                    dots: true
-                                }
-                            },
-                            {
-                                breakpoint: 600,
-                                settings: {
-                                    slidesToShow: 2,
-                                    slidesToScroll: 2
-                                }
-                            },
-                            {
-                                breakpoint: 480,
-                                settings: {
-                                    slidesToShow: 1,
-                                    slidesToScroll: 1
-                                }
-                            }
-                            // You can unslick at a given breakpoint now by adding:
-                            // settings: "unslick"
-                            // instead of a settings object
-                        ]
-                    });
-                });
-            </script>
 
             <section id="eventos_nuevos">
                 <h2 id="subtitulo"> RECIÉN LLEGADOS AL HILO... </h2>
@@ -198,6 +177,200 @@
                 </article>
             </section>
 
+            <section id="slider-empresas">
+                <h2 id="subtitulo"> PROMOTORES DEL HILO ROJO</h2>
+                <div class="your-class-empresas">
+                    <div class="promotor-card">
+                        <div class="promotor-card__contenido">
+                            <p class="promotor-card__tipo">Restaurante · Gràcia, Barcelona</p>
+                            <h3 class="promotor-card__titulo">Restaurante La Plaza</h3>
+                            <p class="promotor-card__descripcion">
+                                Un espacio gastronómico cálido y social, pensado para compartir
+                                buena comida, conversaciones y nuevas conexiones.
+                            </p>
+                            <div class="promotor-card__bloque">
+                                <h4>Lo que aporta</h4>
+                                <ul class="promotor-card__lista">
+                                    <li>Ambiente acogedor</li>
+                                    <li>Ubicación céntrica</li>
+                                    <li>Ideal para encuentros distendidos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="promotor-card">
+                        <div class="promotor-card__contenido">
+                            <p class="promotor-card__tipo">Cafetería · Eixample, Barcelona</p>
+                            <h3 class="promotor-card__titulo">Café Aurora</h3>
+                            <p class="promotor-card__descripcion">
+                                Una cafetería tranquila y luminosa, perfecta para eventos cercanos,
+                                charlas informales y primeras conexiones sin presión.
+                            </p>
+                            <div class="promotor-card__bloque">
+                                <h4>Lo que aporta</h4>
+                                <ul class="promotor-card__lista">
+                                    <li>Espacio relajado</li>
+                                    <li>Buena iluminación</li>
+                                    <li>Perfecto para citas de tarde</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="promotor-card">
+                        <div class="promotor-card__contenido">
+                            <p class="promotor-card__tipo">Bar cultural · El Born, Barcelona</p>
+                            <h3 class="promotor-card__titulo">La Sala Roja</h3>
+                            <p class="promotor-card__descripcion">
+                                Un local con personalidad propia, música suave y ambiente creativo,
+                                ideal para encuentros con un toque diferente.
+                            </p>
+                            <div class="promotor-card__bloque">
+                                <h4>Lo que aporta</h4>
+                                <ul class="promotor-card__lista">
+                                    <li>Ambiente artístico</li>
+                                    <li>Zona con encanto</li>
+                                    <li>Formato ideal para grupos pequeños</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="promotor-card">
+                        <div class="promotor-card__contenido">
+                            <p class="promotor-card__tipo">Casa joven · Sants, Barcelona</p>
+                            <h3 class="promotor-card__titulo">Espai Jove Sants</h3>
+                            <p class="promotor-card__descripcion">
+                                Un espacio comunitario pensado para actividades sociales, dinámicas
+                                participativas y eventos accesibles para gente joven.
+                            </p>
+                            <div class="promotor-card__bloque">
+                                <h4>Lo que aporta</h4>
+                                <ul class="promotor-card__lista">
+                                    <li>Entorno juvenil</li>
+                                    <li>Espacio polivalente</li>
+                                    <li>Ideal para actividades guiadas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="promotor-card">
+                        <div class="promotor-card__contenido">
+                            <p class="promotor-card__tipo">Librería café · Sant Antoni, Barcelona</p>
+                            <h3 class="promotor-card__titulo">Lletres i Cafè</h3>
+                            <p class="promotor-card__descripcion">
+                                Una librería con zona de café donde las conversaciones nacen de forma
+                                natural entre libros, calma y pequeños detalles.
+                            </p>
+                            <div class="promotor-card__bloque">
+                                <h4>Lo que aporta</h4>
+                                <ul class="promotor-card__lista">
+                                    <li>Ambiente íntimo</li>
+                                    <li>Estética cuidada</li>
+                                    <li>Ideal para perfiles tranquilos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="promotor-card">
+                        <div class="promotor-card__contenido">
+                            <p class="promotor-card__tipo">Rooftop · Poblenou, Barcelona</p>
+                            <h3 class="promotor-card__titulo">Terrassa Mar</h3>
+                            <p class="promotor-card__descripcion">
+                                Una terraza urbana con vistas y ambiente moderno, pensada para eventos
+                                sociales al aire libre y experiencias más especiales.
+                            </p>
+                            <div class="promotor-card__bloque">
+                                <h4>Lo que aporta</h4>
+                                <ul class="promotor-card__lista">
+                                    <li>Vistas agradables</li>
+                                    <li>Ambiente moderno</li>
+                                    <li>Perfecto para eventos de noche</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="promotor-card">
+                        <div class="promotor-card__contenido">
+                            <p class="promotor-card__tipo">Centro cultural · El Raval, Barcelona</p>
+                            <h3 class="promotor-card__titulo">Centre Obert Raval</h3>
+                            <p class="promotor-card__descripcion">
+                                Un espacio diverso y abierto a la comunidad, ideal para encuentros
+                                inclusivos, dinámicas sociales y eventos con valor humano.
+                            </p>
+                            <div class="promotor-card__bloque">
+                                <h4>Lo que aporta</h4>
+                                <ul class="promotor-card__lista">
+                                    <li>Espacio inclusivo</li>
+                                    <li>Ubicación multicultural</li>
+                                    <li>Ideal para eventos participativos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="promotor-card">
+                        <div class="promotor-card__contenido">
+                            <p class="promotor-card__tipo">Coctelería · Sarrià, Barcelona</p>
+                            <h3 class="promotor-card__titulo">Nuit Bar</h3>
+                            <p class="promotor-card__descripcion">
+                                Una coctelería elegante y tranquila, perfecta para encuentros más
+                                cuidados, conversaciones pausadas y ambiente sofisticado.
+                            </p>
+                            <div class="promotor-card__bloque">
+                                <h4>Lo que aporta</h4>
+                                <ul class="promotor-card__lista">
+                                    <li>Ambiente elegante</li>
+                                    <li>Iluminación cálida</li>
+                                    <li>Ideal para citas afterwork</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="promotor-card">
+                        <div class="promotor-card__contenido">
+                            <p class="promotor-card__tipo">Espacio creativo · Poble-sec, Barcelona</p>
+                            <h3 class="promotor-card__titulo">Atelier 21</h3>
+                            <p class="promotor-card__descripcion">
+                                Un estudio creativo adaptable para talleres, encuentros temáticos
+                                y eventos donde la experiencia importa tanto como la conexión.
+                            </p>
+                            <div class="promotor-card__bloque">
+                                <h4>Lo que aporta</h4>
+                                <ul class="promotor-card__lista">
+                                    <li>Formato flexible</li>
+                                    <li>Estética original</li>
+                                    <li>Ideal para eventos temáticos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="promotor-card">
+                        <div class="promotor-card__contenido">
+                            <p class="promotor-card__tipo">Hotel boutique · Ciutat Vella, Barcelona</p>
+                            <h3 class="promotor-card__titulo">Hotel Brisa</h3>
+                            <p class="promotor-card__descripcion">
+                                Un hotel pequeño y con encanto, ideal para organizar encuentros
+                                cuidados, cómodos y con una imagen más profesional.
+                            </p>
+                            <div class="promotor-card__bloque">
+                                <h4>Lo que aporta</h4>
+                                <ul class="promotor-card__lista">
+                                    <li>Imagen profesional</li>
+                                    <li>Espacios reservados</li>
+                                    <li>Ideal para eventos especiales</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <section id="espacio_iconos">
                 <h2 id="subtitulo"> MÁS ALLÁ DEL ENCUENTRO</h2>
@@ -248,7 +421,79 @@
             <a href="index.html">Home</a>
         </nav>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="slick/slick.min.js"></script>
 
+    <script>
+        $(document).ready(function () {
+            $('.your-class').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                centerMode: true,
+                centerPadding: '60px',
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1,
+                            centerMode: true,
+                            centerPadding: '40px'
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            centerMode: true,
+                            centerPadding: '20px'
+                        }
+                    }
+                ]
+            });
+        });
+        $(document).ready(function () {
+            $('.your-class-empresas').slick({
+                dots: true,
+                infinite: false,
+                speed: 300,
+                slidesToShow: 4,
+                slidesToScroll: 4,
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3,
+                            infinite: true,
+                            dots: true
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                    // You can unslick at a given breakpoint now by adding:
+                    // settings: "unslick"
+                    // instead of a settings object
+                ]
+            });
+        });
+    </script>
 
 </body>
 

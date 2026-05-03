@@ -203,7 +203,7 @@ label {
     grid-column: 1 / 2;
 
     display: grid;
-    grid-template-rows: auto auto auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto auto auto;
 
     padding-top: 90px;
     padding-bottom: 50px;
@@ -282,6 +282,22 @@ label {
 }
 
 
+#slider-empresas {
+    grid-row: 5 / 6;
+    grid-column: 1 / 2;
+
+    width: 100%;
+    max-width: 100%;
+
+    text-align: center;
+    margin: 70px 0;
+    padding: 0 20px;
+
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+
 .your-class .slick-track {
     display: flex !important;
 }
@@ -290,10 +306,61 @@ label {
     height: auto;
     padding: 0 10px;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
 }
 
 .your-class .slick-slide > div {
     height: 100%;
+    width: 100%;
+}
+
+.slide-card-slider {
+    width: 360px;
+    max-width: 360px;
+    padding: 14px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.slide-card-slider img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    border-radius: 16px;
+}
+
+.slide-card-slider a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.slide-card-slider h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+/* Opacidad para slides no centrales */
+.your-class .slick-slide:not(.slick-center) {
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.your-class .slick-slide.slick-center {
+    opacity: 1;
+}
+
+/* En móvil, todas las slides visibles tienen opacidad completa */
+@media (max-width: 480px) {
+    .your-class .slick-slide {
+        opacity: 1 !important;
+    }
 }
 
 /* La tarjeta real */
@@ -749,7 +816,14 @@ img {
     .card_icon  .card__meta{
        display: none;
     }
-  
+    #slider-empresas {
+        order: 6;
+        width: 100%;
+        max-width: 100%;
+        margin: 20px 0;
+        padding: 0 16px;
+        overflow: hidden;
+    }
 
 
 }
@@ -839,13 +913,13 @@ img {
     #espacio_iconos h2,
     #eventos_cerca h2,
     #portada .btn-inicio,
+    #eventos_cerca
     .btn {
         display: none !important;
     }
 
     #portada,
     #slider,
-    #eventos_cerca,
     #espacio_iconos {
         grid-row: auto !important;
         grid-column: auto !important;
@@ -861,22 +935,6 @@ img {
         min-height: 100vh;
         margin: 0;
         padding: 0 16px;
-    }
-
-    #eventos_cerca {
-        order: 2;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        overflow-y: hidden;
-        -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x mandatory;
-        gap: 10px;
-        padding: 10px;
-        margin: 0;
-        align-items: stretch;
-        width: 100%;
     }
 
     .card {
@@ -898,6 +956,16 @@ img {
     }
 
     #slider {
+        order: 2;
+        display: block !important;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0 12px;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+    #slider-empresas {
         order: 4;
         display: block !important;
         width: 100%;
@@ -926,4 +994,138 @@ img {
         display: block;
         margin: 8px;
     }
+}
+
+
+
+
+
+/* =========================
+   TARJETA PROMOTOR
+========================= */
+
+.promotor-card {
+    width: 100%;
+    max-width: 360px;
+    min-height: 520px;
+    margin: 0 1rem;
+    background: #fffaf3;
+    border: 1.5px solid rgba(168, 4, 4, 0.25);
+    border-radius: 22px;
+
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 14px 35px rgba(70, 30, 30, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.promotor-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 45px rgba(70, 30, 30, 0.18);
+}
+
+.promotor-card__contenido {
+    width: 100%;
+}
+
+.promotor-card__tipo {
+    margin: 0 0 8px;
+
+    font-size: 13px;
+    font-weight: 500;
+    color: #5f5f5f;
+}
+
+.promotor-card__titulo {
+    margin: 0 0 16px;
+
+    font-size: 25px;
+    line-height: 1.15;
+    font-weight: 700;
+    color: #a80404;
+}
+
+.promotor-card__descripcion {
+    margin: 0 auto 26px;
+
+    max-width: 290px;
+
+    font-size: 15px;
+    line-height: 1.55;
+    color: #222;
+}
+
+/* Bloque interior */
+
+.promotor-card__bloque {
+    width: 100%;
+    margin-bottom: 26px;
+}
+
+.promotor-card__bloque h4 {
+    margin: 0 0 14px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 14px;
+    font-weight: 700;
+    color: #a80404;
+    text-align: left;
+}
+
+.promotor-card__bloque h4::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: rgba(168, 4, 4, 0.25);
+}
+
+/* Lista tipo chips */
+
+.promotor-card__lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.promotor-card__lista li {
+    min-height: 34px;
+
+    padding: 7px 12px 7px 34px;
+
+    border: 1px solid rgba(168, 4, 4, 0.18);
+    border-radius: 999px;
+
+    background: rgba(255, 243, 229, 0.75);
+
+    font-size: 14px;
+    color: #222;
+    text-align: left;
+
+    position: relative;
+}
+
+.promotor-card__lista li::before {
+    content: "";
+    position: absolute;
+    left: 14px;
+    top: 50%;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+    background: #a80404;
+
+    transform: translateY(-50%);
 }
