@@ -288,18 +288,74 @@ html {
 
 #slider {
     grid-row: 3/4;
+    width: 90%;
+    max-width: 1100px;
+    margin: 70px auto;
     text-align: center;
-    margin: 70px 20px;
-
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
-#slider img {
-    width: 100%;
-    /* ancho del viewport */
+/* Vista interna de Slick */
+#slider .slick-list {
+    overflow: hidden;
+}
+
+/* Carril de Slick */
+#slider .slick-track {
+    display: flex;
+    align-items: stretch;
+}
+
+/* Cada slide generado por Slick */
+#slider .slick-slide {
     height: auto;
-    display: block;
+    box-sizing: border-box;
 }
 
+/* Separación entre tarjetas */
+.slide-item {
+    padding: 20px 12px;
+    box-sizing: border-box;
+}
+
+/* Tarjeta */
+.slide-card {
+    background: #fff;
+    min-height: 260px;
+    padding: 35px 25px;
+    border-radius: 14px;
+    border: 6px solid #fff;
+    box-shadow: 0 5px 14px rgba(0, 0, 0, .14);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.slide-card h3 {
+    font-size: 22px;
+    color: #a80404;
+    margin-bottom: 12px;
+}
+
+.slide-card p {
+    font-size: 14px;
+    max-width: 260px;
+    margin: 0;
+}
+
+/* Para que la tarjeta del centro destaque un poco */
+#slider .slick-center .slide-card {
+    border-color: #a80404;
+    transform: scale(1.04);
+}
+
+.slide-card {
+    transition: transform .3s ease, border-color .3s ease;
+}
 #eventos_nuevos {
     grid-row: 2/3;
     display: grid;

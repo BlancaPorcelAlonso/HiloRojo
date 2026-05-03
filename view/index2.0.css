@@ -1,0 +1,912 @@
+/* =========================
+   FUENTES
+========================= */
+
+@font-face {
+    font-family: "Poppins";
+    src: url("fonts/Poppins-Regular.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("fonts/Poppins-SemiBold.ttf");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("fonts/Poppins-Bold.ttf");
+    font-weight: 700;
+}
+
+/* =========================
+   RESET GENERAL
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    line-height: 1.5;
+    background: #f2f2f2;
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+.btn-registro,
+.btn-login,
+.btn-usuario {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+
+h1 {
+    font-weight: 700;
+    color: #fff;
+}
+
+h2 {
+    font-weight: 600;
+}
+
+h3,
+label {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* =========================
+   CONTENEDOR GENERAL
+========================= */
+
+#contenedor {
+    min-height: 100vh;
+    background: #f2f2f2;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    width: 100%;
+    text-align: center;
+}
+
+/* =========================
+   CABECERA
+========================= */
+
+#cabecera {
+    background-color: #a80404;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    z-index: 9999;
+    box-sizing: border-box;
+}
+
+/* LOGOS */
+
+#logo_completo {
+    display: block;
+    width: 180px;
+}
+
+#logo_solo {
+    display: none;
+    width: 60px;
+}
+
+/* OPCIONES */
+
+.opciones {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-right: 50px;
+}
+
+/* BUSCADOR */
+
+.buscador {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.barra_buscador {
+    padding: 6px 10px;
+    border: none;
+    width: 200px;
+}
+
+.btn-buscar {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.btn-buscar img {
+    width: 26px;
+    height: auto;
+    display: block;
+}
+
+/* USUARIO */
+
+.usuario {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font: Poppins 400 14px;
+}
+
+.btn-registro,
+.btn-login {
+    background: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-usuario {
+    display: none;
+    width: 38px;
+    height: 38px;
+    background-image: url("assets/icono_usuario.png");
+    background-size: 22px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    border: none;
+}
+
+/* =========================
+   CONTENIDO
+========================= */
+
+#contenido {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+
+    display: grid;
+    grid-template-rows: auto auto auto auto auto auto;
+
+    padding-top: 90px;
+    padding-bottom: 50px;
+
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================
+   PORTADA
+========================= */
+
+#portada {
+    grid-row: 1 / 2;
+    min-height: 100vh;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-image: url("assets/fondo-portada.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    padding: 0;
+    margin: 0;
+}
+
+.btn-inicio {
+    margin-top: 10px;
+    width: 180px;
+    height: 52px;
+
+    background-color: #a80404;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 14px;
+
+    border: 1.5px solid #a80404;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-inicio:hover {
+    background-color: #fff;
+    color: #a80404;
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   SLIDER SLICK
+========================= */
+
+#slider {
+    grid-row: 3 / 4;
+    grid-column: 1 / 2;
+
+    width: 100%;
+    max-width: 100%;
+
+    text-align: center;
+    margin: 70px 0;
+    padding: 0 20px;
+
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.your-class {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow: visible;
+}
+
+.your-class .slick-list {
+    overflow: hidden;
+}
+
+.your-class .slick-track {
+    display: flex !important;
+}
+
+.your-class .slick-slide {
+    height: auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.your-class .slick-slide > div {
+    height: 100%;
+}
+
+/* La tarjeta real */
+.slide-card {
+    background: pink;
+    min-height: 500px;
+    padding: 40px;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    font-size: 30px;
+    border-radius: 16px;
+
+    box-sizing: border-box;
+}
+
+.slick-prev,
+.slick-next {
+    z-index: 20;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: black;
+}
+
+/* =========================
+   EVENTOS NUEVOS
+========================= */
+
+#eventos_nuevos {
+    grid-row: 2 / 3;
+    display: grid;
+    grid-template-rows: auto auto;
+    text-align: center;
+    margin: 40px;
+}
+
+#eventos_nuevos article {
+    border: 6px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .12);
+    overflow: hidden;
+    margin: 30px;
+    padding: 20px;
+    display: flex;
+    text-align: right;
+    background: #fff;
+}
+
+#eventos_nuevos article div {
+    padding: 20px;
+}
+
+#eventos_nuevos article img {
+    width: 200px;
+    height: auto;
+    max-width: 36vw;
+    padding: 20px;
+}
+
+/* =========================
+   EVENTOS CERCA
+========================= */
+
+#eventos_cerca {
+    grid-row: 4 / 5;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+
+    padding: 0 24px 24px;
+    margin-top: 25px;
+    margin-bottom: 80px;
+
+    text-align: center;
+}
+
+#eventos_cerca h2 {
+    text-align: center;
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+}
+
+.card {
+    border: 6px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .12);
+    overflow: hidden;
+
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+
+    background-color: white;
+}
+
+.card__photo {
+    width: 100%;
+    height: 220px;
+    background: #fff;
+    border-bottom: 4px solid #000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card__photo img {
+    width: 80%;
+    height: 90%;
+    object-fit: cover;
+    display: block;
+}
+
+.card__title {
+    margin: 14px 14px 6px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.card__meta {
+    margin: 0 14px 12px;
+    font-size: 14px;
+}
+
+.card__btn {
+    margin: 0 14px 14px;
+    padding: 10px 12px;
+
+    border: 2px solid #000;
+    background: transparent;
+
+    font-weight: 600;
+    cursor: pointer;
+    justify-self: start;
+    color: #000;
+    font-size: small;
+}
+
+/* =========================
+   ICONOS
+========================= */
+
+#espacio_iconos {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+
+    padding: 35px 24px;
+    text-align: center;
+    background-color: #fff;
+    margin-bottom: 50px;
+}
+
+#espacio_iconos h2 {
+    text-align: center;
+    grid-column: 2 / 4;
+    grid-row: 1 / 2;
+}
+
+.card_icon {
+    grid-row: 2 / 3;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+}
+
+.card__icon_photo {
+    width: 100%;
+    height: 130px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+.icon {
+    background-image: url("assets/iconos_inicio.png");
+    width: 110px;
+    height: 100px;
+    background-size: 235px 197px;
+}
+
+#icon1 {
+    background-position: -16px 9px;
+}
+
+#icon2 {
+    background-position: -117px 4px;
+}
+
+#icon3 {
+    background-position: -12px -85px;
+}
+
+#icon4 {
+    background-position: 118px -93px;
+}
+
+.card__icon_photo::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+
+    background: #EED4A6;
+    opacity: 0;
+
+    transform: translate(-50%, -50%) scale(.7);
+    transition: opacity .2s ease, transform .3s ease;
+
+    z-index: 0;
+    pointer-events: none;
+}
+
+.card__icon_photo .icon {
+    position: relative;
+    z-index: 1;
+    transition: transform .3s ease;
+}
+
+.card__icon_photo:hover::before {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.card__icon_photo:hover .icon {
+    transform: translateY(-6px);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    grid-row: 3 / 4;
+    background-color: rgba(12, 12, 12, 0.733);
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 20px;
+}
+
+footer img {
+    width: 50px;
+    height: auto;
+    max-width: 12vw;
+    margin: 10px;
+}
+
+footer a {
+    margin: 10px;
+    color: #fff;
+}
+
+
+
+/* =========================
+   RESPONSIVE EXACTO DEL index-responsive.css
+   Adaptado solo a rutas assets/ y al slider actual
+========================= */
+
+/* ===========================
+   TABLET (501px–800px)
+=========================== */
+@media (min-width: 501px) and (max-width: 800px) {
+
+    #logo_completo {
+        display: none;
+    }
+
+    #logo_solo {
+        display: block;
+        width: 60px;
+    }
+
+    .barra_buscador {
+        width: 150px;
+    }
+
+    #cabecera {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 100%;
+    }
+}
+
+/* ===========================
+   MÓVIL CABECERA (≤500px)
+=========================== */
+@media (max-width: 500px) {
+
+    #logo_completo {
+        display: none;
+    }
+
+    #logo_solo {
+        display: block;
+        width: 55px;
+    }
+
+    .barra_buscador {
+        display: none;
+    }
+
+    .btn-buscar img {
+        width: 22px;
+        height: 22px;
+    }
+
+    #cabecera {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 8px 12px;
+    }
+
+    .opciones {
+        margin-left: auto;
+        margin-right: 0;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .btn-registro,
+    .btn-login {
+        display: none;
+    }
+
+    .btn-usuario {
+        display: flex;
+    }
+}
+
+/* ===========================
+   TABLET / MÓVIL GRANDE (≤768px)
+   Igual que el responsive bueno
+=========================== */
+@media (max-width: 768px) {
+
+    #espacio_iconos h2,
+    .btn {
+        display: none !important;
+    }
+
+    #eventos_cerca {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        padding: 10px;
+        margin: 0;
+        align-items: center;
+    }
+
+    .card {
+        width: 70%;
+    }
+
+    #cabecera-superior {
+        position: static;
+    }
+
+    #contenido {
+        display: flex !important;
+        flex-direction: column;
+        gap: 50px;
+        padding-top: 0;
+        padding-bottom: 50px;
+    }
+
+    #portada,
+    #slider,
+    .your-class,
+    .mi-slider,
+    #eventos_cerca,
+    #espacio_iconos {
+        grid-row: auto !important;
+        grid-column: auto !important;
+    }
+
+    #portada {
+        order: 1;
+        margin-top: 0;
+        min-height: 100vh;
+        background-size: cover;
+        background-position: center;
+    }
+
+    #slider,
+    .your-class,
+    .mi-slider {
+        order: 3;
+        display: block !important;
+        width: calc(100% - 24px);
+        max-width: 100%;
+        margin: 0 12px;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    #slider img,
+    .mi-slider img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    #slider .slick-slide,
+    .your-class .slick-slide,
+    .mi-slider .slick-slide {
+        padding: 0 8px;
+        box-sizing: border-box;
+    }
+
+    #slider .slick-slide>div,
+    .your-class .slick-slide>div,
+    .mi-slider .slick-slide>div {
+        min-height: 300px;
+        font-size: 24px;
+    }
+
+    #eventos_cerca {
+        order: 4;
+    }
+
+    #eventos_nuevos {
+        order: 2;
+        margin: 20px 0;
+        padding: 0 16px;
+        box-sizing: border-box;
+    }
+
+    #espacio_iconos {
+        order: 5;
+        margin: 0;
+    }
+
+    #eventos_nuevos article {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #a80404;
+        color: #f2f2f2;
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    #eventos_nuevos article div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #eventos_nuevos article div p {
+        text-align: center;
+    }
+
+    #eventos_nuevos article img {
+        display: none;
+    }
+
+    #eventos_nuevos article div .card__btn {
+        background-color: #fff;
+        border: 1px solid #fff;
+        color: #000;
+    }
+}
+
+/* ===========================
+   MÓVIL PEQUEÑO (≤415px)
+   Este es el comportamiento que tenías correcto
+=========================== */
+@media (max-width: 415px) {
+
+    #eventos_nuevos,
+    #espacio_iconos h2,
+    #eventos_cerca h2,
+    #portada .btn-inicio,
+    .btn {
+        display: none !important;
+    }
+
+    #eventos_cerca {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        gap: 10px;
+        padding: 10px;
+        margin: 0;
+        order: 2;
+        align-items: stretch;
+    }
+
+    .card {
+        flex: 0 0 auto;
+        scroll-snap-align: center;
+        width: 80%;
+        max-width: none;
+    }
+
+    #contenedor {
+        background-color: #fff;
+    }
+
+    #portada {
+        order: 1;
+        background-color: #fff;
+        background-image: url("assets/fondo-movil.png");
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    #cabecera {
+        position: static;
+    }
+
+    #contenido {
+        display: flex !important;
+        flex-direction: column;
+        gap: 50px;
+        padding-top: 0;
+    }
+
+    #portada,
+    #slider,
+    .your-class,
+    .mi-slider,
+    #eventos_cerca,
+    #espacio_iconos {
+        grid-row: auto !important;
+        grid-column: auto !important;
+    }
+
+    #espacio_iconos {
+        order: 3;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center;
+        gap: 35px;
+        padding: 30px 20px;
+        margin: 0;
+    }
+
+    #slider,
+    .your-class,
+    .mi-slider {
+        order: 4;
+        display: block !important;
+        width: calc(100% - 24px);
+        max-width: 100%;
+        margin: 0 12px;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    #slider .slick-slide>div,
+    .your-class .slick-slide>div,
+    .mi-slider .slick-slide>div {
+        min-height: 260px;
+        font-size: 22px;
+        padding: 30px 20px;
+    }
+
+    .mi-slider img,
+    #slider img {
+        width: 100%;
+        height: auto;
+        max-height: 230px;
+        object-fit: cover;
+    }
+
+    #portada div h2 {
+        font-size: larger;
+    }
+
+    footer img {
+        max-width: 60px;
+    }
+
+    footer a {
+        display: block;
+        margin: 8px;
+    }
+}

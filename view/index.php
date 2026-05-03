@@ -1,4 +1,3 @@
-<?php require_once ('header.php');?>
 <!DOCTYPE html>
 <html lang="es"> <!-- "es" si la web está en español -->
 
@@ -6,12 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El Hilo Rojo</title>
-    <link rel="stylesheet" href="index.css" /> <!-- ENLAZAMOS CON EL CSS DEL FORMULARIO -->
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="index2.0.css">
+    <link rel="stylesheet" href="slick/slick.css">
+    <link rel="stylesheet" href="slick/slick-theme.css">
+
+
 </head>
 
 <body>
     <div id="contenedor">
         <!-- CABECERA SUPERIOR -->
+        <header id="cabecera">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/logo_cabecera_nombre_logo.png" id="logo_completo" alt="Logo_completo">
+                    <img src="assets/logo en blanco.png" id="logo_solo" alt="Logo_solo"></a>
+            </div>
+            <div class="opciones">
+                <form class="buscador">
+                    <input class="barra_buscador" type="search" placeholder="Buscar...">
+                    <button type="submit" class="btn-buscar">
+                        <img src="assets/icono_lupa.png" alt="Buscar">
+                    </button>
+                </form>
+
+                <div class="usuario">
+                    <a href="formularios/formulario_crear_usuario.html" class="btn-registro">
+                        Registro
+                    </a>
+
+                    <a href="formularios/formulario_inicio_sesion_usuario.html" class="btn-login">
+                        Iniciar sesión
+                    </a>
+                    <!-- Botón único para móvil -->
+                    <a href="formularios/formulario_inicio_sesion_usuario.html" class="btn-usuario">
+                    </a>
+                </div>
+            </div>
+        </header>
+
 
         <main id="contenido">
             <section id="portada">
@@ -24,9 +57,47 @@
                 </div>
             </section>
 
-            <div id="slider">
-                <img src="assets/simulador_slider.png" alt="imagen que simula donde ira el slider " />
-            </div>
+           <section id="slider">
+    <div class="your-class">
+        <div class="slide-card">Contenido 1</div>
+        <div class="slide-card">Contenido 2</div>
+        <div class="slide-card">Contenido 3</div>
+        <div class="slide-card">Contenido 4</div>
+    </div>
+</section>
+            <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+            <script src="slick/slick.min.js"></script>
+            
+            <script>
+                $(document).ready(function () {
+                    $('.your-class').slick({
+                        dots: true,
+                        arrows: true,
+                        infinite: true,
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+
+                        responsive: [
+                            {
+                                breakpoint: 770,
+                                settings: {
+                                    slidesToShow: 2,
+                                    slidesToScroll: 1,
+                                    arrows: true
+                                }
+                            },
+                            {
+                                breakpoint: 500,
+                                settings: {
+                                    slidesToShow: 1,
+                                    slidesToScroll: 1,
+                                    arrows: false
+                                }
+                            }
+                        ]
+                    });
+                });
+            </script>
 
             <section id="eventos_nuevos">
                 <h2 id="subtitulo"> RECIÉN LLEGADOS AL HILO... </h2>
@@ -39,9 +110,7 @@
                             ambiente cercano y divertido.
                             <br>Ideal para romper el hielo jugando.
                         </p>
-                        <a href="/HiloRojo/view/eventos/evento_ejemplo1.html" class="card__btn"> IR AL
-                            EVENTO
-                        </a>
+                        <a href="eventos/evento_ejemplo1.html" class="card__btn"> IR AL EVENTO </a>
                     </div>
                 </article>
                 <article>
@@ -50,9 +119,7 @@
                         <h2> SPEED DATING RETRO</h2>
                         <p> Viaja a los años 50 con una experiencia divertida entre batidos, música vintage y nuevas
                             conexiones. Nunca es tarde para conectar, una experiencia única.</p>
-                        <a href="/HiloRojo/view/eventos/evento_ejemplo2.html" class="card__btn"> IR AL
-                            EVENTO
-                        </a>
+                        <a href="eventos/evento_ejemplo2.html" class="card__btn"> IR AL EVENTO </a>
                     </div>
                 </article>
             </section>
@@ -64,65 +131,63 @@
                     <div class="card__photo">
                         <img src="assets/Ejemplo_evento_3.png" alt="imagen evento" />
                     </div>
+
                     <h3 class="card__title"> ENTRE CALÇOTS</h3>
                     <p class="card__meta">Comparte calçots, vino y risas en un evento donde conocer gente fluye de forma
                         natural.</p>
-                    <a href="/HiloRojo/view/eventos/evento_ejemplo3.html" class="card__btn"> IR AL
-                        EVENTO </a>
+                    <a href="eventos/evento_ejemplo3.html" class="card__btn"> IR AL EVENTO </a>
                 </article>
-
                 <article class="card">
                     <div class="card__photo">
                         <img src="assets/Ejemplo_evento_4.png" alt="imagen de evento" />
                     </div>
+
                     <h3 class="card__title">PINK LOVE EXPERIENCE</h3>
                     <p class="card__meta">Un evento pensado para quienes creen en el amor bonito. Ambiente rosa y
                         atmósfera íntima.</p>
-                    <a href="/HiloRojo/view/eventos/evento_ejemplo4.html" class="card__btn"> IR AL
-                        EVENTO </a>
+                    <a href="eventos/evento_ejemplo4.html" class="card__btn"> IR AL EVENTO </a>
                 </article>
-
                 <article class="card">
                     <div class="card__photo">
                         <img src="assets/Ejemplo_evento_5.jpg" alt="imagen de evento" />
                     </div>
+
                     <h3 class="card__title">CITAS NOCTURNAS</h3>
                     <p class="card__meta"> Conversaciones sin prisas, sin presión y con un toque nocturno.</p>
-                    <a href="/HiloRojo/view/eventos/evento_ejemplo5.html" class="card__btn"> IR AL
-                        EVENTO </a>
+                    <a href="eventos/evento_ejemplo5.html" class="card__btn"> IR AL EVENTO </a>
                 </article>
 
                 <article class="card">
                     <div class="card__photo">
                         <img src="assets/Ejemplo_evento_6.jpg" alt="imagen evento" />
                     </div>
+
                     <h3 class="card__title">EXPERIENCIA SOCIAL</h3>
                     <p class="card__meta">Una cena dinámica para conocer gente nueva de forma natural.</p>
-                    <a href="/HiloRojo/view/eventos/evento_ejemplo6.html" class="card__btn"> IR AL
-                        EVENTO </a>
+                    <a href="eventos/evento_ejemplo6.html" class="card__btn"> IR AL EVENTO </a>
                 </article>
 
                 <article class="card">
                     <div class="card__photo">
                         <img src="assets/ejemplo_evento_7.jpg" alt="imagen evento" />
                     </div>
+
                     <h3 class="card__title">CITAS A CIEGAS</h3>
                     <p class="card__meta">Atrévete a vivir una experiencia diferente sin distracciones visuales.</p>
-                    <a href="/HiloRojo/view/eventos/evento_ejemplo7.html" class="card__btn"> IR AL
-                        EVENTO </a>
+                    <a href="eventos/evento_ejemplo7.html" class="card__btn"> IR AL EVENTO </a>
                 </article>
 
                 <article class="card">
                     <div class="card__photo">
                         <img src="assets/ejemplo_evento_8.png" alt="imagen evento" />
                     </div>
+
                     <h3 class="card__title">DATING CON MASCOTAS</h3>
                     <p class="card__meta">Conecta con otras personas amantes de los animales en un entorno divertido.
                     </p>
-                    <a href="/HiloRojo/view/eventos/evento_ejemplo8.html" class="card__btn"> IR AL
-                        EVENTO </a>
+                    <a href="eventos/evento_ejemplo8.html" class="card__btn"> IR AL EVENTO </a>
                 </article>
-            </section> 
+            </section>
 
 
             <section id="espacio_iconos">
@@ -171,9 +236,11 @@
             <a href="#sobre-nosotros">Sobre nosotros</a>
             <a href="#ayuda">Ayuda</a>
             <a href="#contacto">Contacto</a>
-            <a href="index.php">Home</a>
+            <a href="index.html">Home</a>
         </nav>
     </footer>
+
+
 </body>
 
 </html>
