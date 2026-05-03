@@ -30,4 +30,16 @@ $(document).ready(function () {
     }
   });
 
+
+  $("#JqueryTextoHover").hide();
+
+  $(".video-area").on("mouseenter", function () {
+    $("#JqueryTextoHover").fadeIn(200);
+  });
+
+  $(".video-area").on("mouseleave", function () {
+    $("#JqueryTextoHover").fadeOut(200);
+  });
+
 });
+
