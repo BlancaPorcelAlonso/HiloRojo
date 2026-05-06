@@ -33,6 +33,18 @@
                 cursor: pointer;
                 border-radius: 3px;
             }
+            #btn-reabrir-cookies {
+                background-color: #050505;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                margin: 5px;
+                cursor: pointer;
+                border-radius: 3px;
+                position: fixed;
+                top: 45px;
+                right: 90px;
+            }
 
             #cookies button:hover {
                 background-color: #333333;
@@ -46,11 +58,11 @@
                 <button type="button" id="btn-aceptar" name="cookiesAccepted" value="true">Aceptar</button>
                 <button type="button" id="btn-rechazar" name="cookiesAccepted" value="false">Rechazar</button>
 
-            </div>
+            </div>                    <button type="button" id="btn-reabrir-cookies" style="display:none;">Ver aviso de cookies de nuevo</button>
+
             <section id="formularioclass=" formulario"> <!-- contenido con formulario -->
                 <div id=cabecera_titulo> <!-- cabecera con titulo del apartado -->
                     <h2> INICIAR SESIÓN </h2>
-                    <button type="button" id="btn-reabrir-cookies" style="display:none;">Ver aviso de cookies de nuevo</button>
 
                 </div>
                 <form action="../../controller/userController.php" autocomplete="on" method="post">

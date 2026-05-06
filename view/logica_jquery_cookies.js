@@ -42,9 +42,15 @@ $(document).ready(function () {
         verificarEstado();
     });
 
-    // 5. EVENTO CLIC: Volver a mostrar el aviso (si rechazó anteriormente)
-    $('#btn-reabrir-cookies').click(function () {
-        $('#cookies').fadeIn(); // Mostramos el aviso con efecto
-        $(this).hide();         // Ocultamos este botón mientras el usuario decide
-    });
+  // 5. EVENTO CLIC: Volver a mostrar el aviso
+$('#btn-reabrir-cookies').click(function () {
+    // Borramos el 'false' para que el sistema trate al usuario como nuevo
+    localStorage.removeItem('cookiesAceptadas'); 
+    
+    // Ahora ejecutamos la verificación para que el panel se vea
+    verificarEstado();
+    
+    // Opcional: un toque visual para que el panel aparezca por arriba
+    $('#cookies').css('visibility', 'visible').hide().fadeIn(); 
+});
 });
