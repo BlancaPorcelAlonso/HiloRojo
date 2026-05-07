@@ -81,7 +81,13 @@ a:active {
     align-content: start;              /* evita repartos raros PRUEBA*/
 }
 
-
+/* Clase para oscurecer y evitar que se pueda hacer clic */
+.login-inactivo {
+    opacity: 1.5;            /* Lo hace más oscuro/transparente */
+    pointer-events: none;    /* Evita que se pueda clicar o escribir */
+    filter: grayscale(100%); /* Opcional: lo pone en blanco y negro */
+    user-select: none;       /* Evita que se pueda seleccionar el texto */
+}
 button,
 .btn-registro,
 .btn-login,
@@ -198,6 +204,7 @@ button,
     color: tomato;
   }
 
+}
   /* Reorganizar cabecera */
   #cabecera {
     display: flex;
