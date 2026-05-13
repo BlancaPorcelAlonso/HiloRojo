@@ -81,13 +81,7 @@ a:active {
     align-content: start;              /* evita repartos raros PRUEBA*/
 }
 
-/* Clase para oscurecer y evitar que se pueda hacer clic */
-.login-inactivo {
-    opacity: 1.5;            /* Lo hace más oscuro/transparente */
-    pointer-events: none;    /* Evita que se pueda clicar o escribir */
-    filter: grayscale(100%); /* Opcional: lo pone en blanco y negro */
-    user-select: none;       /* Evita que se pueda seleccionar el texto */
-}
+
 button,
 .btn-registro,
 .btn-login,
@@ -204,7 +198,6 @@ button,
     color: tomato;
   }
 
-}
   /* Reorganizar cabecera */
   #cabecera {
     display: flex;
@@ -510,3 +503,44 @@ input[name="email"]:user-invalid+span {
     margin-bottom: 20px;
     margin-top: 10px;
   }
+
+
+  #cookies {
+  background-color: #595858;
+  color: white;
+  opacity: 50%;
+  padding: 15px;
+  margin: 50px;
+  border-radius: 5px;
+
+  position: fixed;   /* Lo fija respecto a la ventana del navegador */
+  z-index: 9999;     /* Lo superpone por encima de los demás elementos */
+
+}
+
+#cookies button {
+  background-color: #050505;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+#btn-reabrir-cookies {
+  background-color: #050505;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+  position: fixed;
+  top: 45px;
+  right: 90px;
+}
+
+#cookies button:hover {
+  background-color: #333333;
+}

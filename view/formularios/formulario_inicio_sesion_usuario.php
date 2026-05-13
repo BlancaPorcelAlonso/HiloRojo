@@ -9,69 +9,62 @@
 </head>
 
 <body>
-    <form action="../../controller/userController.php" method="POST"></form>
-
     <div id="contenedor">
 
-        <?php include_once("../header.php"); ?>
-        <style>
-            #cookies {
-                background-color: #777777;
-                color: white;
-                opacity: 50%;
-                padding: 15px;
-                margin: 50px;
-                border-radius: 5px;
-            }
+        <header id="cabecera">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../assets/logo_cabecera_nombre_logo.png" id="logo_completo"
+                        alt="Logo completo de El Hilo Rojo con nombre y símbolo">
+                    <img src="../assets/logo_en_blanco.png" id="logo_solo" alt="Logo en blanco de El Hilo Rojo"></a>
+            </div>
+            <div class="opciones">
+                <form class="buscador">
+                    <input class="barra_buscador" type="search" placeholder="Buscar...">
+                    <button type="submit" class="btn-buscar">
+                        <img src="../assets/icono_lupa.png" alt="Icono de lupa para buscar">
+                    </button>
+                </form>
 
-            #cookies button {
-                background-color: #050505;
-                color: white;
-                border: none;
-                padding: 10px 20px;
-                margin: 5px;
-                cursor: pointer;
-                border-radius: 3px;
-            }
-            #btn-reabrir-cookies {
-                background-color: #050505;
-                color: white;
-                border: none;
-                padding: 10px 20px;
-                margin: 5px;
-                cursor: pointer;
-                border-radius: 3px;
-                position: fixed;
-                top: 45px;
-                right: 90px;
-            }
+                <div class="usuario">
+                    <a href="formulario_crear_usuario.html" class="btn-registro">
+                        Registro
+                    </a>
 
-            #cookies button:hover {
-                background-color: #333333;
-            }
-        </style>
+                    <a href="formulario_inicio_sesion_usuario.html" class="btn-login">
+                        Iniciar sesión
+                    </a>
+                    <!-- Botón único para móvil -->
+                    <a href="formulario_inicio_sesion_usuario.html" class="btn-usuario">
+                    </a>
+                </div>
+            </div>
+        </header>
         <main>
+
             <div id="cookies">
 
-
-                <p>Este sitio web utiliza cookies para mejorar tu experiencia. Al continuar navegando, aceptas el uso de cookies.</p>
+                <p>Este sitio web utiliza cookies para mejorar tu experiencia. Al continuar navegando, aceptas el uso de
+                    cookies.</p>
                 <button type="button" id="btn-aceptar" name="cookiesAccepted" value="true">Aceptar</button>
                 <button type="button" id="btn-rechazar" name="cookiesAccepted" value="false">Rechazar</button>
 
-            </div>                    <button type="button" id="btn-reabrir-cookies" style="display:none;">Ver aviso de cookies de nuevo</button>
-
-            <section id="formularioclass=" formulario"> <!-- contenido con formulario -->
+            </div>
+            <button type="button" id="btn-reabrir-cookies" style="display:none;">Ver aviso de cookies de
+                nuevo</button>
+            <section class="formulario"> <!-- contenido con formulario -->
                 <div id=cabecera_titulo> <!-- cabecera con titulo del apartado -->
                     <h2> INICIAR SESIÓN </h2>
-
                 </div>
-                <form action="../../controller/userController.php" autocomplete="on" method="post">
+                <form action="accio.php" autocomplete="on" method="get">
 
                     <div class="form-grid">
 
                         <div class="col-izq">
 
-                            <div class="preview-foto"><img src="../assets/registro_img.png" alt="Imagen ilustrativa de una pareja conectándose en la aplicación El Hilo Rojo"></div>
+                            <div class="preview-foto"><img src="../assets/registro_img.png"
+                                    alt="Imagen ilustrativa de una pareja conectándose en la aplicación El Hilo Rojo">
+                            </div>
                         </div>
 
                         <!-- COLUMNA DERECHA -->
@@ -86,8 +79,8 @@
 
                             <!-- forms pasword -->
                             <label for="password">Escribe tu contraseña:</label>
-                            <input type="password" name="contrasena" id="password" required
-                                placeholder=""
+                            <input type="password" name="password" id="password" required
+                                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$" placeholder=""
                                 title=" Minimo 8 caracteres, debe incluir numeros, mayusculas y minusculas" />
 
                             <div class="fila-aux">
@@ -100,24 +93,10 @@
                             </div>
 
                             <!-- BOTÓN SUBMIT -->
-                            <button type="submit" name="login" class="btn-submit">
+                            <button type="submit" class="btn-submit">
                                 ENTRAR
                             </button>
-
-                            <?php
-                            if (isset($_GET['error'])) {
-                                $e = $_GET['error'];
-                                if ($e === 'contrasena_incorrecta') {
-                                    echo "<p style='color:red; text-align:center;'>contraseña incorrecta</p>";
-                                } elseif ($e === 'email_no_registrado') {
-                                    echo "<p style='color:red; text-align:center;'>email no registrado</p>";
-                                } else {
-                                    echo "<p style='color:red; text-align:center;'>datos incorrectos</p>";
-                                }
-                            }
-                            ?>
-
-                            <p class="sin-cuenta">NO TIENES UNA CUENTA? <a href="formulario_crear_usuario.php"
+                            <p class="sin-cuenta">NO TIENES UNA CUENTA? <a href="formulario_crear_usuario.html"
                                     class="link-crear">CREAR UNA</a></p>
 
                         </div>
@@ -133,15 +112,10 @@
             <a href="#sobre-nosotros">Sobre nosotros</a>
             <a href="#ayuda">Ayuda</a>
             <a href="#contacto">Contacto</a>
-            <a href="../index.php">Home</a>
+            <a href="../index.html">Home</a>
         </nav>
 
     </footer>
-    <!-- 1. La librería (el motor) -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- 2. Tu lógica (el conductor) -->
-    <script src="/HiloRojo/view/logica_jquery_cookies.js"></script>
 </body>
 
 </html>
