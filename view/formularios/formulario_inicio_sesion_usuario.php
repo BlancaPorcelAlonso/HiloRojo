@@ -116,6 +116,12 @@
         </nav>
 
     </footer>
+
+     <!-- 1. La librería (el motor) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ 
+    <!-- 2. Tu lógica (el conductor) -->
+    <script src="/HiloRojo/view/logica_jquery_cookies.js"></script>
 </body>
 
 </html>
