@@ -1,0 +1,34 @@
+#cabecera {
+    background-color: #a80404;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+}
+
+/* LOGOS */
+#logo_completo {
+    display: block;
+    width: 180px;
+}
+
+#logo_solo {
+    display: none;
+    width: 60px;
+}
+
+.opciones {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.usuario {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font: Poppins 400 14px;
+}

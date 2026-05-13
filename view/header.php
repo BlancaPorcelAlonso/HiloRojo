@@ -13,14 +13,14 @@
     <header id="cabecera">
         <div class="logo">
             <a href="index.php">
-                <img src="assets/logo_cabecera_nombre_logo.png" id="logo_completo" alt="Logo_completo">
-                <img src="assets/logo en blanco.png" id="logo_solo" alt="Logo_solo"></a>
+                <img src="../assets/logo_cabecera_nombre_logo.png" id="logo_completo" alt="Logo_completo">
+                <img src="../assets/logo en blanco.png" id="logo_solo" alt="Logo_solo"></a>
         </div>
         <div class="opciones">
             <form class="buscador">
                 <input class="barra_buscador" type="search" placeholder="Buscar...">
                 <button type="submit" class="btn-buscar">
-                    <img src="assets/icono_lupa.png" alt="Buscar">
+                    <img src="../assets/icono_lupa.png" alt="Buscar">
                 </button>
             </form>
 

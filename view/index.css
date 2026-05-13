@@ -87,15 +87,7 @@ button,
   font-weight: 500;
 }
 
-#cabecera {
-  background-color: #a80404;
-  padding: 10px 15px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: fixed;
-  width: 100%;
-}
+
 
 /* LOGOS */
 #logo_completo { display: block; width: 180px; }
