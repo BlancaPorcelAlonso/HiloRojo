@@ -35,6 +35,7 @@ class UserController
         $username = "sql7824380";
         $contrasena = "66E6mahs6E";
         $dbname = "sql7824380";
+        
 
         try {
             $dsn = "mysql:host=$servername;dbname=$dbname;charset=utf8mb4";
