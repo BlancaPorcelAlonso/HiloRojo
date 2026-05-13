@@ -13,7 +13,7 @@
 
         <header id="cabecera">
             <div class="logo">
-                <a href="../index.html">
+                <a href="../index.php">
                     <img src="../assets/logo_cabecera_nombre_logo.png" id="logo_completo"
                         alt="Logo completo de El Hilo Rojo con nombre y símbolo">
                     <img src="../assets/logo_en_blanco.png" id="logo_solo" alt="Logo en blanco de El Hilo Rojo"></a>
@@ -27,15 +27,15 @@
                 </form>
 
                 <div class="usuario">
-                    <a href="formulario_crear_usuario.html" class="btn-registro">
+                    <a href="formulario_crear_usuario.php" class="btn-registro">
                         Registro
                     </a>
 
-                    <a href="formulario_inicio_sesion_usuario.html" class="btn-login">
+                    <a href="formulario_inicio_sesion_usuario.php" class="btn-login">
                         Iniciar sesión
                     </a>
                     <!-- Botón único para móvil -->
-                    <a href="formulario_inicio_sesion_usuario.html" class="btn-usuario">
+                    <a href="formulario_inicio_sesion_usuario.php" class="btn-usuario">
                     </a>
                 </div>
             </div>
@@ -96,7 +96,7 @@
                             <button type="submit" class="btn-submit">
                                 ENTRAR
                             </button>
-                            <p class="sin-cuenta">NO TIENES UNA CUENTA? <a href="formulario_crear_usuario.html"
+                            <p class="sin-cuenta">NO TIENES UNA CUENTA? <a href="formulario_crear_usuario.php"
                                     class="link-crear">CREAR UNA</a></p>
 
                         </div>
