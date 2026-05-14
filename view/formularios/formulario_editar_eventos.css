@@ -293,5 +293,5 @@ footer img {
 
 footer a {
     margin: 10px;
-    color: #fff;
+    color: #fff !important;
 }

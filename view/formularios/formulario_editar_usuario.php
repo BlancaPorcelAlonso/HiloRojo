@@ -60,7 +60,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'user') {
                 <div id=cabecera_titulo> <!-- cabecera con titulo del apartado -->
                     <h2> EDITAR PERFIL </h2>
                 </div>
-                <form action="accio.php" autocomplete="on" method="get">
+                <form action="../../controller/userController.php" autocomplete="on" method="get">
 
                     <div class="form-grid">
 

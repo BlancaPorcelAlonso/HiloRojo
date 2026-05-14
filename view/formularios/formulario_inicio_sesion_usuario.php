@@ -56,7 +56,7 @@
                 <div id=cabecera_titulo> <!-- cabecera con titulo del apartado -->
                     <h2> INICIAR SESIÓN </h2>
                 </div>
-                <form action="accio.php" autocomplete="on" method="get">
+                <form action="../../controller/userController.php" autocomplete="on" method="post">
 
                     <div class="form-grid">
 
@@ -77,9 +77,8 @@
                                 title="Debe tener un formato valido" /><!-- placeholder nos sirve para que se vea en gris el ejemplo -->
                             <span>⚠️ Introduce un email válido.</span>
 
-                            <!-- forms pasword -->
                             <label for="password">Escribe tu contraseña:</label>
-                            <input type="password" name="password" id="password" required
+                            <input type="password" name="contrasena" id="password" required
                                 pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$" placeholder=""
                                 title=" Minimo 8 caracteres, debe incluir numeros, mayusculas y minusculas" />
 
@@ -93,7 +92,7 @@
                             </div>
 
                             <!-- BOTÓN SUBMIT -->
-                            <button type="submit" class="btn-submit">
+                            <button type="submit" name="login" class="btn-submit">
                                 ENTRAR
                             </button>
                             <p class="sin-cuenta">NO TIENES UNA CUENTA? <a href="formulario_crear_usuario.php"

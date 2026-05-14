@@ -38,7 +38,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] === 'user') {
             <div id=cabecera_titulo> 
                 <h2> EDITAR EVENTO </h2>
             </div>
-            <form action="accio.php" autocomplete="on" method="get">
+            <form action="../../controller/eventContoller.php" autocomplete="on" method="get">
 
                 <div class="form-grid">
 

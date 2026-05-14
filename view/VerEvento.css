@@ -442,7 +442,7 @@ footer img {
 
 footer a {
     margin: 10px;
-    color: white;
+    color: white !important;
 }
 
 @media (min-width: 451px) and (max-width: 900px) {

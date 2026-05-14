@@ -623,7 +623,7 @@ footer img {
 
 footer a {
     margin: 10px;
-    color: #fff;
+    color: #fff !important;
 }
 
 
@@ -990,6 +990,7 @@ img {
     footer a {
         display: block;
         margin: 8px;
+        color: #fff !important;
     }
 }
 
