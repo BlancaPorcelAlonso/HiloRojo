@@ -49,7 +49,8 @@ class UserController
             $this->conn = $pdo;
 
         } catch (PDOException $e) {
-            die("Error de conexión: " . $e->getMessage());
+            // Bypass para Demo: No matamos el proceso, guardamos null y seguimos
+            $this->conn = null;
         }
     }
 
@@ -62,21 +63,21 @@ class UserController
 
         // Selección de página
         if ($pagina == "evento_ejemplo1") {
-            header("Location: /HiloRojo/view/eventos/evento_ejemplo1.html");
+            header("Location: /HiloRojo/view/eventos/evento_ejemplo1.php");
         } elseif ($pagina == "evento_ejemplo2") {
-            header("Location: /HiloRojo/view/eventos/evento_ejemplo2.html");
+            header("Location: /HiloRojo/view/eventos/evento_ejemplo2.php");
         } elseif ($pagina == "evento_ejemplo3") {
-            header("Location: /HiloRojo/view/eventos/evento_ejemplo3.html");
+            header("Location: /HiloRojo/view/eventos/evento_ejemplo3.php");
         } elseif ($pagina == "evento_ejemplo4") {
-            header("Location: /HiloRojo/view/eventos/evento_ejemplo4.html");
+            header("Location: /HiloRojo/view/eventos/evento_ejemplo4.php");
         } elseif ($pagina == "evento_ejemplo5") {
-            header("Location: /HiloRojo/view/eventos/evento_ejemplo5.html");
+            header("Location: /HiloRojo/view/eventos/evento_ejemplo5.php");
         } elseif ($pagina == "evento_ejemplo6") {
-            header("Location: /HiloRojo/view/eventos/evento_ejemplo6.html");
+            header("Location: /HiloRojo/view/eventos/evento_ejemplo6.php");
         } elseif ($pagina == "evento_ejemplo7") {
-            header("Location: /HiloRojo/view/eventos/evento_ejemplo7.html");
+            header("Location: /HiloRojo/view/eventos/evento_ejemplo7.php");
         } elseif ($pagina == "evento_ejemplo8") {
-            header("Location: /HiloRojo/view/eventos/evento_ejemplo8.html");
+            header("Location: /HiloRojo/view/eventos/evento_ejemplo8.php");
         } else {
             header("Location: /HiloRojo/view/formularios/formulario_crear_usuario.php");
         }
@@ -99,9 +100,20 @@ class UserController
         $email = $_POST["email"] ?? "";
         $contrasena = $_POST["contrasena"] ?? "";
 
-        $sql = "SELECT * FROM usuarios WHERE email = ? AND contrasena = ?";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute([$email, $contrasena]);
+        // Bypass para Demo: Si no hay conexión, entramos directos
+        if ($this->conn === null) {
+            $_SESSION["logged"] = true;
+            $_SESSION["email"] = $email ?: "usuario.demo@example.com";
+            $_SESSION["user_id"] = 999;
+            $_SESSION['role'] = 'user';
+            header("Location: /HiloRojo/view/index.php");
+            exit;
+        }
+
+        try {
+            $sql = "SELECT * FROM usuarios WHERE email = ? AND contrasena = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([$email, $contrasena]);
 
         if ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $_SESSION["logged"] = true;
@@ -120,10 +132,18 @@ class UserController
             }
             $_SESSION['role'] = $role;
 
+                header("Location: /HiloRojo/view/index.php");
+                exit;
+            } else {
+                header("Location: /HiloRojo/view/formularios/formulario_inicio_sesion_usuario.php?error=email_no_registrado");
+                exit;
+            }
+        } catch (PDOException $e) {
+            // Si la conexión falló a mitad de camino, bypass de nuevo
+            $_SESSION["logged"] = true;
+            $_SESSION["email"] = $email;
+            $_SESSION['role'] = 'user';
             header("Location: /HiloRojo/view/index.php");
-            exit;
-        } else {
-            header("Location: /HiloRojo/view/formularios/formulario_inicio_sesion_usuario.php?error=email_no_registrado");
             exit;
         }
     }

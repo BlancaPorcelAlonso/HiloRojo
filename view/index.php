@@ -1,3 +1,4 @@
+<?php if(session_status() === PHP_SESSION_NONE) { session_start(); } ?>
 <!DOCTYPE html>
 <html lang="es"> <!-- "es" si la web está en español -->
 
@@ -16,34 +17,7 @@
 <body>
     <div id="contenedor">
         <!-- CABECERA SUPERIOR -->
-        <header id="cabecera">
-            <div class="logo">
-                <a href="index.php">
-                    <img src="assets/logo_cabecera_nombre_logo.png" id="logo_completo" alt="Logo_completo">
-                    <img src="assets/logo en blanco.png" id="logo_solo" alt="Logo_solo"></a>
-            </div>
-            <div class="opciones">
-                <form class="buscador">
-                    <input class="barra_buscador" type="search" placeholder="Buscar...">
-                    <button type="submit" class="btn-buscar">
-                        <img src="assets/icono_lupa.png" alt="Buscar">
-                    </button>
-                </form>
-
-                <div class="usuario">
-                    <a href="formularios/formulario_crear_usuario.php" class="btn-registro">
-                        Registro
-                    </a>
-
-                    <a href="formularios/formulario_inicio_sesion_usuario.php" class="btn-login">
-                        Iniciar sesión
-                    </a>
-                    <!-- Botón único para móvil -->
-                    <a href="formularios/formulario_inicio_sesion_usuario.php" class="btn-usuario">
-                    </a>
-                </div>
-            </div>
-        </header>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/HiloRojo/view/header.php'; ?>
 
 
         <main id="contenido">
@@ -60,25 +34,25 @@
             <section id="slider">
                 <div class="your-class">
                     <div class="slide-card-slider">
-                        <a href="eventos/evento_ejemplo1.html">
+                        <a href="eventos/evento_ejemplo1.php">
                             <img src="assets/Ejemplo_evento_1.png" alt="imagen de evento" />
                         </a>
                         <h3> GAME NIGHT DATING </h3>
                     </div>
                     <div class="slide-card-slider">
-                        <a href="eventos/evento_ejemplo5.html">
+                        <a href="eventos/evento_ejemplo5.php">
                             <img src="assets/Ejemplo_evento_5.jpg" alt="imagen de evento" />
                         </a>
                         <h3>CITAS NOCTURNAS</h3>
                     </div>
                     <div class="slide-card-slider">
-                        <a href="eventos/evento_ejemplo3.html">
+                        <a href="eventos/evento_ejemplo3.php">
                             <img src="assets/Ejemplo_evento_3.png" alt="imagen evento" />
                         </a>
                         <h3> ENTRE CALÇOTS</h3>
                     </div>
                     <div class="slide-card-slider">
-                        <a href="eventos/evento_ejemplo4.html">
+                        <a href="eventos/evento_ejemplo4.php">
                             <img src="assets/Ejemplo_evento_4.png" alt="imagen de evento" />
                         </a>
                         <h3>PINK LOVE EXPERIENCE</h3>
@@ -98,7 +72,7 @@
                             ambiente cercano y divertido.
                             <br>Ideal para romper el hielo jugando.
                         </p>
-                        <a href="eventos/evento_ejemplo1.html" class="card__btn"> IR AL EVENTO </a>
+                        <a href="eventos/evento_ejemplo1.php" class="card__btn"> IR AL EVENTO </a>
                     </div>
                 </article>
                 <article>
@@ -107,7 +81,7 @@
                         <h2> SPEED DATING RETRO</h2>
                         <p> Viaja a los años 50 con una experiencia divertida entre batidos, música vintage y nuevas
                             conexiones. Nunca es tarde para conectar, una experiencia única.</p>
-                        <a href="eventos/evento_ejemplo2.html" class="card__btn"> IR AL EVENTO </a>
+                        <a href="eventos/evento_ejemplo2.php" class="card__btn"> IR AL EVENTO </a>
                     </div>
                 </article>
             </section>
@@ -123,7 +97,7 @@
                     <h3 class="card__title"> ENTRE CALÇOTS</h3>
                     <p class="card__meta">Comparte calçots, vino y risas en un evento donde conocer gente fluye de forma
                         natural.</p>
-                    <a href="eventos/evento_ejemplo3.html" class="card__btn"> IR AL EVENTO </a>
+                    <a href="eventos/evento_ejemplo3.php" class="card__btn"> IR AL EVENTO </a>
                 </article>
                 <article class="card">
                     <div class="card__photo">
@@ -133,7 +107,7 @@
                     <h3 class="card__title">PINK LOVE EXPERIENCE</h3>
                     <p class="card__meta">Un evento pensado para quienes creen en el amor bonito. Ambiente rosa y
                         atmósfera íntima.</p>
-                    <a href="eventos/evento_ejemplo4.html" class="card__btn"> IR AL EVENTO </a>
+                    <a href="eventos/evento_ejemplo4.php" class="card__btn"> IR AL EVENTO </a>
                 </article>
                 <article class="card">
                     <div class="card__photo">
@@ -142,7 +116,7 @@
 
                     <h3 class="card__title">CITAS NOCTURNAS</h3>
                     <p class="card__meta"> Conversaciones sin prisas, sin presión y con un toque nocturno.</p>
-                    <a href="eventos/evento_ejemplo5.html" class="card__btn"> IR AL EVENTO </a>
+                    <a href="eventos/evento_ejemplo5.php" class="card__btn"> IR AL EVENTO </a>
                 </article>
 
                 <article class="card">
@@ -152,7 +126,7 @@
 
                     <h3 class="card__title">EXPERIENCIA SOCIAL</h3>
                     <p class="card__meta">Una cena dinámica para conocer gente nueva de forma natural.</p>
-                    <a href="eventos/evento_ejemplo6.html" class="card__btn"> IR AL EVENTO </a>
+                    <a href="eventos/evento_ejemplo6.php" class="card__btn"> IR AL EVENTO </a>
                 </article>
 
                 <article class="card">
@@ -162,7 +136,7 @@
 
                     <h3 class="card__title">CITAS A CIEGAS</h3>
                     <p class="card__meta">Atrévete a vivir una experiencia diferente sin distracciones visuales.</p>
-                    <a href="eventos/evento_ejemplo7.html" class="card__btn"> IR AL EVENTO </a>
+                    <a href="eventos/evento_ejemplo7.php" class="card__btn"> IR AL EVENTO </a>
                 </article>
 
                 <article class="card">
@@ -173,7 +147,7 @@
                     <h3 class="card__title">DATING CON MASCOTAS</h3>
                     <p class="card__meta">Conecta con otras personas amantes de los animales en un entorno divertido.
                     </p>
-                    <a href="eventos/evento_ejemplo8.html" class="card__btn"> IR AL EVENTO </a>
+                    <a href="eventos/evento_ejemplo8.php" class="card__btn"> IR AL EVENTO </a>
                 </article>
             </section>
 
@@ -418,7 +392,7 @@
             <a href="#sobre-nosotros">Sobre nosotros</a>
             <a href="#ayuda">Ayuda</a>
             <a href="#contacto">Contacto</a>
-            <a href="index.html">Home</a>
+            <a href="index.php">Home</a>
         </nav>
     </footer>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

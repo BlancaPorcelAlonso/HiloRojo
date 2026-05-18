@@ -27,34 +27,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'user') {
 <body>
     <div id="contenedor">
 
-        <header id="cabecera">
-            <div class="logo">
-                <a href="../index.php">
-                    <img src="../assets/logo_cabecera_nombre_logo.png" id="logo_completo" alt="Logo_completo">
-                    <img src="../assets/logo_en_blanco.png" id="logo_solo" alt="Logo_solo"></a>
-            </div>
-            <div class="opciones">
-                <form class="buscador">
-                    <input class="barra_buscador" type="search" placeholder="Buscar...">
-                    <button type="submit" class="btn-buscar">
-                        <img src="../assets/icono_lupa.png" alt="Buscar">
-                    </button>
-                </form>
-
-                <div class="usuario">
-                    <a href="formulario_crear_usuario.php" class="btn-registro">
-                        Registro
-                    </a>
-
-                    <a href="formulario_inicio_sesion_usuario.php" class="btn-login">
-                        Iniciar sesión
-                    </a>
-                    <!-- Botón único para móvil -->
-                    <a href="formulario_inicio_sesion_usuario.php" class="btn-usuario">
-                    </a>
-                </div>
-            </div>
-        </header>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/HiloRojo/view/header.php'; ?>
         <main>
             <section class="formulario"> <!-- contenido con formulario -->
                 <div id=cabecera_titulo> <!-- cabecera con titulo del apartado -->

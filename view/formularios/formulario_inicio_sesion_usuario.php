@@ -1,3 +1,4 @@
+<?php if(session_status() === PHP_SESSION_NONE) { session_start(); } ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -11,35 +12,7 @@
 <body>
     <div id="contenedor">
 
-        <header id="cabecera">
-            <div class="logo">
-                <a href="../index.php">
-                    <img src="../assets/logo_cabecera_nombre_logo.png" id="logo_completo"
-                        alt="Logo completo de El Hilo Rojo con nombre y símbolo">
-                    <img src="../assets/logo_en_blanco.png" id="logo_solo" alt="Logo en blanco de El Hilo Rojo"></a>
-            </div>
-            <div class="opciones">
-                <form class="buscador">
-                    <input class="barra_buscador" type="search" placeholder="Buscar...">
-                    <button type="submit" class="btn-buscar">
-                        <img src="../assets/icono_lupa.png" alt="Icono de lupa para buscar">
-                    </button>
-                </form>
-
-                <div class="usuario">
-                    <a href="formulario_crear_usuario.php" class="btn-registro">
-                        Registro
-                    </a>
-
-                    <a href="formulario_inicio_sesion_usuario.php" class="btn-login">
-                        Iniciar sesión
-                    </a>
-                    <!-- Botón único para móvil -->
-                    <a href="formulario_inicio_sesion_usuario.php" class="btn-usuario">
-                    </a>
-                </div>
-            </div>
-        </header>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/HiloRojo/view/header.php'; ?>
         <main>
 
             <div id="cookies">
@@ -112,7 +85,7 @@
             <a href="#sobre-nosotros">Sobre nosotros</a>
             <a href="#ayuda">Ayuda</a>
             <a href="#contacto">Contacto</a>
-            <a href="../index.html">Home</a>
+            <a href="../index.php">Home</a>
         </nav>
 
     </footer>
