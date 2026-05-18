@@ -32,9 +32,9 @@ class UserController
     public function __construct()
     {
         $servername = "sql7.freesqldatabase.com";
-        $username = "sql7824380";
-        $contrasena = "66E6mahs6E";
-        $dbname = "sql7824380";
+        $username = "sql7827280";
+        $contrasena = "kpGAfDYBhi";
+        $dbname = "sql7827280";
         
 
         try {
